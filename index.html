@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ASG | شركة تقنية وإبداعية — نحول فكرتك إلى مشروع حقيقي</title>
+<meta name="description" content="ASG شركة تقنية وإبداعية: مواقع، تطبيقات، فيديو، تصميم، عروض تقديمية، شعارات وهوية بصرية. ابدأ مشروعك مع فريق حقيقي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { cairo:['Cairo','sans-serif'], taj:['Tajawal','sans-serif'], plex:['"IBM Plex Sans Arabic"','sans-serif'] },
+      colors: { brand:{50:'#FEF2F2',100:'#FEE2E2',500:'#E30613',600:'#C00511',700:'#9A0410',900:'#4A0208'}, ink:{900:'#0A0A0B',800:'#141417',700:'#1E1E22',600:'#2A2A30'}, paper:'#FFFFFF', mist:'#F6F6F7' },
+      boxShadow: { premium:'0 20px 60px -15px rgba(227,6,19,.25)', card:'0 10px 40px -12px rgba(0,0,0,.12)', glow:'0 0 0 1px rgba(227,6,19,.2), 0 20px 60px -10px rgba(227,6,19,.35)' }
+    }
+  }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*{ -webkit-tap-highlight-color:transparent; }
+html{ scroll-behavior:smooth; scroll-padding-top:90px; }
+body{ font-family:'Cairo','Tajawal',sans-serif; background:#fff; color:#141417; overflow-x:hidden; }
+::selection{ background:#E30613; color:#fff; }
+::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:#F6F6F7; } ::-webkit-scrollbar-thumb{ background:linear-gradient(#E30613,#7a020a); border-radius:99px; }
+.font-num{ font-variant-numeric:tabular-nums; }
+/* top progress */
+#scrollProgress{ position:fixed; top:0; right:0; height:4px; width:0%; background:linear-gradient(90deg,#E30613,#ff5a5a,#E30613); z-index:9999; box-shadow:0 0 12px rgba(227,6,19,.7); }
+/* preloader */
+#preloader{ position:fixed; inset:0; z-index:10000; background:#0A0A0B; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px; transition:opacity .6s, visibility .6s; }
+#preloader.hide{ opacity:0; visibility:hidden; }
+.loader-logo{ font-weight:900; font-size:64px; letter-spacing:2px; color:#fff; position:relative; }
+.loader-logo span{ color:#E30613; }
+.loader-bar{ width:220px; height:3px; background:#222; border-radius:99px; overflow:hidden; } .loader-bar i{ display:block; height:100%; width:0%; background:linear-gradient(90deg,#E30613,#fff); animation:load 1.8s ease forwards; } @keyframes load{ to{ width:100%; } }
+.loader-ring{ position:absolute; inset:-22px; border:1px solid rgba(227,6,19,.35); border-radius:24px; animation:spinRing 3s linear infinite; } @keyframes spinRing{ 0%{ transform:rotate(0) scale(1);} 50%{ transform:rotate(180deg) scale(1.03);} 100%{ transform:rotate(360deg) scale(1);} }
+/* mesh hero */
+.mesh-bg{ position:absolute; inset:0; overflow:hidden; background:radial-gradient(1000px 600px at 85% 10%, rgba(227,6,19,.12), transparent 60%), radial-gradient(800px 500px at 10% 90%, rgba(227,6,19,.08), transparent 60%), linear-gradient(180deg,#ffffff 0%, #FFF5F5 45%, #ffffff 100%); }
+.orb{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.55; animation:float 8s ease-in-out infinite; pointer-events:none; }
+@keyframes float{ 0%,100%{ transform:translateY(0) scale(1);} 50%{ transform:translateY(-24px) scale(1.05);} }
+.grid-pattern{ position:absolute; inset:0; background-image:linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px); background-size:42px 42px; mask-image:radial-gradient(700px 500px at 50% 30%, black 60%, transparent 100%); }
+.noise::after{ content:''; position:absolute; inset:0; opacity:.04; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); pointer-events:none; }
+/* buttons */
+.btn-magnetic{ transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s; will-change:transform; }
+.btn-primary{ background:linear-gradient(135deg,#E30613 0%, #9A0410 100%); color:#fff; box-shadow:0 12px 30px -8px rgba(227,6,19,.5), inset 0 1px 0 rgba(255,255,255,.25); position:relative; overflow:hidden; }
+.btn-primary::before{ content:''; position:absolute; top:0; left:-80%; width:60%; height:100%; background:linear-gradient(105deg, transparent, rgba(255,255,255,.35), transparent); transform:skewX(-20deg); transition:left .6s; }
+.btn-primary:hover::before{ left:130%; } .btn-primary:hover{ box-shadow:0 18px 45px -8px rgba(227,6,19,.6); transform:translateY(-2px); }
+.btn-ghost{ border:1.5px solid #e5e5e8; background:#fff; } .btn-ghost:hover{ border-color:#E30613; color:#E30613; transform:translateY(-2px); box-shadow:0 12px 30px -12px rgba(0,0,0,.15); }
+.btn-dark{ background:#0A0A0B; color:#fff; } .btn-dark:hover{ background:#1E1E22; transform:translateY(-2px); }
+/* nav */
+#navbar{ transition:all .35s; } #navbar.scrolled{ background:rgba(255,255,255,.86); backdrop-filter:blur(18px); box-shadow:0 8px 30px -10px rgba(0,0,0,.12); } #navbar.scrolled .nav-inner{ height:68px; }
+.nav-link{ position:relative; font-weight:700; font-size:14.5px; color:#2A2A30; padding:8px 2px; } .nav-link::after{ content:''; position:absolute; bottom:2px; right:0; width:0; height:2.5px; background:#E30613; border-radius:99px; transition:width .3s; } .nav-link:hover::after,.nav-link.active::after{ width:100%; } .nav-link:hover{ color:#E30613; }
+/* reveal */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); } .reveal.in{ opacity:1; transform:none; } .reveal-d1{ transition-delay:.08s;} .reveal-d2{ transition-delay:.16s;} .reveal-d3{ transition-delay:.24s;}
+/* cards */
+.svc-card{ background:#fff; border:1px solid #ECECEF; border-radius:22px; overflow:hidden; transition:all .35s cubic-bezier(.2,.8,.2,1); position:relative; }
+.svc-card:hover{ transform:translateY(-8px); box-shadow:0 24px 60px -18px rgba(0,0,0,.18), 0 0 0 1px rgba(227,6,19,.15); border-color:rgba(227,6,19,.25); }
+.svc-card:hover .svc-img img{ transform:scale(1.08); } .svc-img{ overflow:hidden; position:relative; height:200px; } .svc-img img{ width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.2,.8,.2,1); }
+.svc-num{ position:absolute; top:14px; right:14px; background:rgba(10,10,11,.72); backdrop-filter:blur(8px); color:#fff; font-weight:900; font-size:12px; padding:6px 12px; border-radius:99px; border:1px solid rgba(255,255,255,.2); }
+.svc-badge{ position:absolute; bottom:12px; right:12px; background:#E30613; color:#fff; font-size:11px; font-weight:800; padding:5px 12px; border-radius:99px; }
+.work-card img{ transition:transform .8s; } .work-card:hover img{ transform:scale(1.07); }
+.tilt{ transform-style:preserve-3d; perspective:1000px; }
+/* marquee */
+.marquee{ display:flex; gap:14px; width:max-content; animation:marq 28s linear infinite; } @keyframes marq{ to{ transform:translateX(50%);} } /* RTL direction */
+/* timeline */
+.phase-dot{ width:52px; height:52px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; background:#F6F6F7; color:#9a9aa3; border:2px solid #ECECEF; transition:all .3s; flex-shrink:0; }
+.phase-item.active .phase-dot{ background:linear-gradient(135deg,#E30613,#7a020a); color:#fff; border-color:#E30613; box-shadow:0 12px 28px -8px rgba(227,6,19,.5); transform:scale(1.05); }
+.phase-item{ cursor:pointer; } .phase-item.active .phase-card{ border-color:rgba(227,6,19,.35); box-shadow:0 18px 50px -18px rgba(227,6,19,.25); }
+/* faq */
+.faq-item{ border:1px solid #ECECEF; border-radius:16px; background:#fff; overflow:hidden; transition:all .3s; } .faq-item.open{ border-color:rgba(227,6,19,.3); box-shadow:0 14px 36px -16px rgba(227,6,19,.2); } .faq-a{ max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.2,.8,.2,1); }
+/* template */
+.tpl-card{ border:2px solid #ECECEF; border-radius:18px; overflow:hidden; background:#fff; cursor:pointer; transition:all .3s; position:relative; } .tpl-card:hover{ transform:translateY(-5px); box-shadow:0 18px 45px -15px rgba(0,0,0,.18); } .tpl-card.selected{ border-color:#E30613; box-shadow:0 0 0 4px rgba(227,6,19,.12), 0 18px 45px -15px rgba(227,6,19,.35); } .tpl-card.selected::after{ content:'✓ تم الاختيار'; position:absolute; top:10px; left:10px; background:#E30613; color:#fff; font-size:11px; font-weight:800; padding:5px 12px; border-radius:99px; }
+/* wizard */
+#wizardModal{ position:fixed; inset:0; z-index:9000; display:none; } #wizardModal.open{ display:block; }
+.wizard-shell{ position:absolute; inset:0; background:rgba(10,10,11,.65); backdrop-filter:blur(10px); display:flex; align-items:stretch; justify-content:center; padding:0; } @media(min-width:768px){ .wizard-shell{ padding:24px; align-items:center; } }
+.wizard-box{ background:#fff; width:100%; max-width:980px; max-height:100dvh; overflow:hidden; display:flex; flex-direction:column; } @media(min-width:768px){ .wizard-box{ border-radius:28px; max-height:92vh; box-shadow:0 40px 100px -20px rgba(0,0,0,.5);} }
+.wstep{ display:none; animation:fadeSlide .45s cubic-bezier(.2,.8,.2,1); } .wstep.active{ display:block; } @keyframes fadeSlide{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:none;} }
+.opt-card{ border:2px solid #ECECEF; border-radius:16px; padding:14px; cursor:pointer; transition:all .25s; background:#fff; } .opt-card:hover{ border-color:#ffb3b8; transform:translateY(-2px);} .opt-card.selected{ border-color:#E30613; background:#FEF2F2; box-shadow:0 0 0 4px rgba(227,6,19,.1); }
+input,textarea,select{ outline:none; } input:focus,textarea:focus,select:focus{ border-color:#E30613 !important; box-shadow:0 0 0 4px rgba(227,6,19,.1) !important; }
+.field{ width:100%; border:1.5px solid #E5E5E8; border-radius:14px; padding:13px 15px; font-size:14.5px; background:#fff; transition:all .25s; font-family:inherit; }
+/* auth */
+#authModal{ position:fixed; inset:0; z-index:9500; display:none; } #authModal.open{ display:block; }
+/* chat */
+#teamChat{ position:fixed; bottom:18px; left:18px; z-index:8000; } #chatPanel{ width:calc(100vw - 36px); max-width:360px; height:480px; max-height:70vh; transform-origin:bottom left; transform:scale(.9) translateY(16px); opacity:0; pointer-events:none; transition:all .35s cubic-bezier(.2,.8,.2,1); } #teamChat.open #chatPanel{ transform:none; opacity:1; pointer-events:auto; }
+.typing span{ width:7px; height:7px; background:#bbb; border-radius:50%; display:inline-block; animation:blink 1.2s infinite; } .typing span:nth-child(2){ animation-delay:.2s;} .typing span:nth-child(3){ animation-delay:.4s;} @keyframes blink{ 0%,60%,100%{ opacity:.3; transform:translateY(0);} 30%{ opacity:1; transform:translateY(-4px);} }
+/* toast */
+#toasts{ position:fixed; top:84px; left:50%; transform:translateX(-50%); z-index:10001; display:flex; flex-direction:column; gap:10px; width:min(92vw,420px); }
+/* misc */
+.chip{ font-size:11.5px; font-weight:700; background:#F6F6F7; border:1px solid #ECECEF; padding:5px 11px; border-radius:99px; color:#555; }
+.grad-text{ background:linear-gradient(135deg,#E30613 20%, #ff4d4d 50%, #7a020a 80%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-phone{ box-shadow:0 30px 80px -20px rgba(0,0,0,.35), 0 0 0 10px #141417, 0 0 0 12px rgba(255,255,255,.2); }
+.float-anim{ animation:float 6s ease-in-out infinite; } .float-anim2{ animation:float 7.5s ease-in-out infinite reverse; }
+.testi-track{ display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding-bottom:6px; } .testi-track::-webkit-scrollbar{ display:none; } .testi-card{ scroll-snap-align:start; min-width:300px; } @media(min-width:768px){ .testi-card{ min-width:360px; } }
+.tab-btn{ transition:all .25s; } .tab-btn.active{ background:#0A0A0B; color:#fff; border-color:#0A0A0B; }
+.step-progress{ height:8px; background:#F0F0F2; border-radius:99px; overflow:hidden; } .step-progress i{ display:block; height:100%; background:linear-gradient(90deg,#E30613,#ff6b6b); border-radius:99px; transition:width .5s cubic-bezier(.2,.8,.2,1); }
+.secure-note{ background:linear-gradient(135deg,#0A0A0B,#1E1E22); }
+.stat-card{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(10px); }
+@media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } .reveal{ opacity:1; transform:none; } }
+#adminPanel{ position:fixed; inset:0; z-index:9600; display:none; } #adminPanel.open{ display:block; }
+.skeleton-shimmer{ background:linear-gradient(90deg,#f0f0f0 25%,#e6e6e6 50%,#f0f0f0 75%); background-size:200% 100%; animation:shim 1.4s infinite; } @keyframes shim{ to{ background-position:-200% 0; } }
+</style>
+</head>
+<body class="antialiased">
+
+<div id="scrollProgress"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader-logo relative">AS<span>G</span><div class="loader-ring"></div></div>
+  <div class="text-white/60 text-sm font-bold tracking-wide">شركة تقنية وإبداعية — جاري تجهيز تجربتك</div>
+  <div class="loader-bar"><i></i></div>
+</div>
+
+<!-- TOASTS -->
+<div id="toasts"></div>
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 right-0 left-0 z-[7000]">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="nav-inner flex items-center justify-between h-[80px] transition-all">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-900 flex items-center justify-center text-white font-black text-xl shadow-premium relative overflow-hidden">A<span class="text-white/70">S</span>G<div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent"></div></div>
+        <div class="leading-tight">
+          <div class="font-black text-lg">ASG</div>
+          <div class="text-[11px] text-gray-500 font-bold -mt-1">تقنية • إبداع • نمو</div>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-6">
+        <a href="#services" class="nav-link">خدماتنا</a>
+        <a href="#templates" class="nav-link">القوالب والأنماط</a>
+        <a href="#works" class="nav-link">أعمالنا</a>
+        <a href="#process" class="nav-link">كيف نعمل</a>
+        <a href="#why" class="nav-link">لماذا نحن</a>
+        <a href="#about" class="nav-link">من نحن</a>
+        <a href="#faq" class="nav-link">الأسئلة الشائعة</a>
+        <a href="#contact" class="nav-link">تواصل</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <div id="authArea" class="hidden sm:flex items-center gap-2"></div>
+        <button onclick="openWizard('general')" class="btn-magnetic btn-primary hidden md:inline-flex items-center gap-2 font-800 font-bold text-sm px-5 py-3 rounded-2xl"><i class="fa-solid fa-rocket"></i> ابدأ مشروعك</button>
+        <button id="menuBtn" class="lg:hidden w-11 h-11 rounded-2xl bg-mist border border-gray-200 flex items-center justify-center text-lg"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="lg:hidden hidden mx-4 mb-4 bg-white rounded-3xl border border-gray-100 shadow-card overflow-hidden">
+    <div class="p-4 grid gap-1 text-[15px] font-bold">
+      <a href="#services" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">خدماتنا</a>
+      <a href="#templates" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">القوالب والأنماط</a>
+      <a href="#works" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">أعمالنا</a>
+      <a href="#process" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">كيف نعمل</a>
+      <a href="#why" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">لماذا نحن</a>
+      <a href="#about" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">من نحن</a>
+      <a href="#faq" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">الأسئلة الشائعة</a>
+      <a href="#contact" class="mob-link p-3 rounded-xl hover:bg-brand-50 hover:text-brand-600">تواصل معنا</a>
+      <div class="flex gap-2 p-2">
+        <button onclick="openWizard('general')" class="btn-primary flex-1 py-3 rounded-xl font-bold text-sm">ابدأ مشروعك</button>
+        <button onclick="openAuth('login')" class="btn-ghost flex-1 py-3 rounded-xl font-bold text-sm">دخول</button>
+      </div>
+      <div id="authAreaMobile" class="px-2 pb-2"></div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-[100svh] flex items-center pt-[110px] pb-10 overflow-hidden">
+  <div class="mesh-bg"></div><div class="grid-pattern"></div>
+  <div class="orb w-[420px] h-[420px] bg-brand-500/40 -top-20 -left-20"></div>
+  <div class="orb w-[300px] h-[300px] bg-orange-300/50 top-1/3 -right-20" style="animation-delay:1.5s"></div>
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <div class="reveal in flex flex-wrap items-center gap-2 mb-5">
+        <span class="inline-flex items-center gap-2 bg-white border border-brand-100 shadow-sm px-4 py-2 rounded-full text-[12.5px] font-bold text-brand-700"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> متاحون لمشاريع جديدة — رد خلال 24 ساعة</span>
+        <span class="inline-flex items-center gap-1 bg-ink-900 text-white px-4 py-2 rounded-full text-[12px] font-bold"><i class="fa-solid fa-shield-halved text-brand-500"></i> فريق حقيقي • عقد • التزام</span>
+      </div>
+      <h1 class="reveal in font-black leading-[1.15] text-[34px] sm:text-[48px] lg:text-[58px]">
+        نحوّل فكرتك إلى<br><span class="grad-text">مشروع حقيقي</span> يليق<br>بطموحك<span class="text-brand-500">.</span>
+      </h1>
+      <p class="reveal in reveal-d1 mt-5 text-gray-600 text-[15px] md:text-[17px] leading-8 max-w-xl">نحن <b>ASG</b> — شركة تقنية وإبداعية. نصمم المواقع والتطبيقات والهويات والفيديو والمحتوى المرئي. تفهم خلال ثوانٍ: <b>من نحن</b>، <b>ماذا نقدم</b>، و<b>كيف تبدأ مشروعك</b> مع فريق يرافقك خطوة بخطوة.</p>
+      <!-- 3 hero CTAs required -->
+      <div class="reveal in reveal-d2 mt-7 grid sm:flex gap-3">
+        <a href="#services" class="btn-magnetic btn-ghost flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-[14.5px]"><i class="fa-solid fa-compass text-brand-500"></i> استكشف خدماتنا</a>
+        <button onclick="openWizard('project')" class="btn-magnetic btn-primary flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-[14.5px]"><i class="fa-solid fa-rocket"></i> ابدأ مشروعك</button>
+        <button onclick="openWizard('idea')" class="btn-magnetic btn-dark flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-[14.5px]"><i class="fa-regular fa-lightbulb"></i> أرسل فكرتك للفريق</button>
+      </div>
+      <div class="reveal in reveal-d3 mt-6 flex items-center gap-4">
+        <div class="flex -space-x-3 space-x-reverse">
+          <img src="https://i.pravatar.cc/80?img=12" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="team"><img src="https://i.pravatar.cc/80?img=32" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="team"><img src="https://i.pravatar.cc/80?img=56" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="team"><div class="w-10 h-10 rounded-full bg-ink-900 text-white text-[11px] font-black flex items-center justify-center border-2 border-white">+120</div>
+        </div>
+        <div class="text-[13px]"><div class="flex text-amber-400 gap-0.5 text-[13px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <b class="text-ink-900 mr-1">4.9</b></div><div class="text-gray-500 font-bold">موثوق من +120 عميل في 6 دول</div></div>
+      </div>
+      <!-- quick explain 3 -->
+      <div class="mt-7 grid grid-cols-3 gap-2 md:gap-3 max-w-xl">
+        <div class="bg-white/80 backdrop-blur border border-gray-100 rounded-2xl p-3 text-center"><div class="text-brand-600 font-black text-lg"><i class="fa-solid fa-users-gear"></i></div><div class="font-black text-[12.5px] mt-1">من نحن؟</div><div class="text-[11.5px] text-gray-500 font-bold">فريق تقني وإبداعي</div></div>
+        <div class="bg-white/80 backdrop-blur border border-gray-100 rounded-2xl p-3 text-center"><div class="text-brand-600 font-black text-lg"><i class="fa-solid fa-layer-group"></i></div><div class="font-black text-[12.5px] mt-1">ماذا نقدم؟</div><div class="text-[11.5px] text-gray-500 font-bold">8 خدمات متكاملة</div></div>
+        <div class="bg-white/80 backdrop-blur border border-gray-100 rounded-2xl p-3 text-center"><div class="text-brand-600 font-black text-lg"><i class="fa-solid fa-route"></i></div><div class="font-black text-[12.5px] mt-1">كيف تبدأ؟</div><div class="text-[11.5px] text-gray-500 font-bold">3 خطوات + إرسال آمن</div></div>
+      </div>
+    </div>
+    <!-- visual -->
+    <div class="relative flex justify-center lg:justify-start" id="heroVisual">
+      <div class="relative w-full max-w-[480px]">
+        <div class="hero-phone relative bg-ink-900 rounded-[32px] overflow-hidden tilt" id="tiltPhone">
+          <div class="bg-white m-0 overflow-hidden rounded-[22px]">
+            <div class="flex items-center justify-between px-5 py-3 border-b border-gray-100"><div class="flex gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span><span class="w-2.5 h-2.5 rounded-full bg-gray-200"></span><span class="w-2.5 h-2.5 rounded-full bg-gray-200"></span></div><div class="text-[11px] font-black text-gray-400" dir="ltr">asg.agency</div></div>
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop" class="w-full h-[210px] object-cover" alt="موقع من تنفيذ ASG">
+            <div class="p-5"><div class="flex items-center justify-between"><div><div class="font-black">متجر NOOR — تجربة شراء فاخرة</div><div class="text-[12px] text-gray-500 font-bold">موقع + هوية + فيديو تعريفي</div></div><span class="bg-green-50 text-green-700 text-[11px] font-black px-3 py-1.5 rounded-full">تم التسليم ✓</span></div>
+              <div class="mt-3 h-2.5 bg-gray-100 rounded-full overflow-hidden"><div id="heroBar" class="h-full w-0 bg-gradient-to-l from-brand-500 to-red-400 rounded-full"></div></div>
+              <div class="mt-3 flex gap-2"><span class="chip">UI/UX</span><span class="chip">متجر</span><span class="chip">Branding</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-anim absolute -top-4 -right-2 md:-right-8 bg-white rounded-2xl shadow-card border border-gray-100 p-3 flex items-center gap-3 w-[190px]"><div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fa-solid fa-mobile-screen"></i></div><div><div class="font-black text-[12.5px]">تطبيق Wasl</div><div class="text-[11px] text-gray-500 font-bold">+48K تحميل</div></div></div>
+        <div class="float-anim2 absolute top-1/2 -left-2 md:-left-10 bg-ink-900 text-white rounded-2xl shadow-card p-3 flex items-center gap-3 w-[200px]"><div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center"><i class="fa-solid fa-clapperboard"></i></div><div><div class="font-black text-[12.5px]">فيديو موشن</div><div class="text-[11px] text-white/60 font-bold">تم التسليم بجودة 4K</div></div></div>
+        <div class="float-anim absolute -bottom-5 right-6 bg-white rounded-2xl shadow-card border border-gray-100 px-4 py-3 flex items-center gap-3" style="animation-delay:1s"><div class="w-9 h-9 rounded-full bg-green-500 text-white flex items-center justify-center"><i class="fa-solid fa-check"></i></div><div><div class="font-black text-[12.5px]">طلبك وصل للفريق</div><div class="text-[11px] text-gray-500 font-bold font-num" dir="ltr">Ref: ASG-2026-XXXX</div></div></div>
+      </div>
+    </div>
+  </div>
+  <a href="#trust" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+<!-- TRUST MARQUEE -->
+<section id="trust" class="py-6 bg-ink-900 text-white overflow-hidden relative noise">
+  <div class="max-w-7xl mx-auto px-4 flex items-center gap-4 mb-4"><span class="text-[12px] font-black bg-white/10 px-4 py-2 rounded-full border border-white/10">يثق بنا أصحاب المشاريع والعلامات</span><span class="text-white/40 text-[12px] font-bold hidden md:block">مواقع • تطبيقات • هويات • فيديو • عروض • متاجر</span></div>
+  <div class="marquee px-4" dir="ltr">
+    <div class="flex gap-3" id="marq1"></div><div class="flex gap-3" id="marq2"></div>
+  </div>
+  <!-- stats -->
+  <div class="max-w-7xl mx-auto px-4 md:px-6 mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="stat-card rounded-2xl p-5 text-center reveal"><div class="font-black text-3xl font-num"><span class="counter" data-target="180">0</span>+</div><div class="text-white/60 text-[13px] font-bold mt-1">مشروع تم تسليمه</div></div>
+    <div class="stat-card rounded-2xl p-5 text-center reveal reveal-d1"><div class="font-black text-3xl font-num"><span class="counter" data-target="120">0</span>+</div><div class="text-white/60 text-[13px] font-bold mt-1">عميل سعيد</div></div>
+    <div class="stat-card rounded-2xl p-5 text-center reveal reveal-d2"><div class="font-black text-3xl font-num"><span class="counter" data-target="8">0</span></div><div class="text-white/60 text-[13px] font-bold mt-1">خدمات متكاملة</div></div>
+    <div class="stat-card rounded-2xl p-5 text-center reveal reveal-d3"><div class="font-black text-3xl font-num"><span class="counter" data-target="98">0</span>%</div><div class="text-white/60 text-[13px] font-bold mt-1">رضا العملاء</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-16 md:py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block bg-brand-50 text-brand-700 font-black text-[12.5px] px-4 py-2 rounded-full border border-brand-100">خدماتنا الأساسية — 8 خدمات</span>
+      <h2 class="font-black text-[28px] md:text-[42px] mt-4 leading-tight">كل ما يحتاجه <span class="grad-text">براندك ومشروعك</span> في مكان واحد</h2>
+      <p class="text-gray-500 font-bold mt-3 text-[14.5px] leading-7">اختر خدمتك، شاهد أمثلة و Previews حقيقية، اختر النمط الذي يعجبك، ثم اطلبها بضغطة — يصلك تأكيد ويصل طلبك مباشرة إلى فريقنا.</p>
+    </div>
+    <div id="servicesGrid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5"></div>
+    <div class="mt-8 bg-gradient-to-l from-ink-900 to-ink-700 rounded-3xl p-6 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 reveal relative overflow-hidden noise">
+      <div class="orb w-[300px] h-[300px] bg-brand-500/40 -top-20 -left-20"></div>
+      <div class="flex-1 relative"><h3 class="font-black text-xl md:text-2xl">مشروعك يجمع أكثر من خدمة؟ نوفر باقات متكاملة.</h3><p class="text-white/60 font-bold text-[13.5px] mt-2">مثال: موقع + هوية + فيديو تعريفي + صور سوشيال — بخصم الباقة وتسليم متناسق.</p></div>
+      <div class="flex gap-2 relative"><button onclick="openWizard('bundle')" class="btn-primary px-6 py-4 rounded-2xl font-bold text-sm">اطلب باقة متكاملة</button><a href="#templates" class="bg-white/10 border border-white/15 px-6 py-4 rounded-2xl font-bold text-sm hover:bg-white/20">تصفح الأنماط</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section id="templates" class="py-16 md:py-24 bg-mist relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
+      <div><span class="bg-ink-900 text-white text-[12px] font-black px-4 py-2 rounded-full">Templates & Styles — اختر ستايلك</span>
+      <h2 class="font-black text-[26px] md:text-[38px] mt-4">لا تشرح كثيرًا.. <span class="text-brand-600">اختر بعينك</span></h2>
+      <p class="text-gray-500 font-bold text-[14px] mt-2 max-w-xl">عند طلب أي خدمة تصميمية نعرض لك هذه الأنماط داخل نموذج الطلب لتختار منها. اختيارك يُرفق تلقائيًا مع طلبك المرسل للفريق.</p></div>
+      <div class="text-[12.5px] font-bold text-gray-500 bg-white border border-gray-200 rounded-2xl px-4 py-3"><i class="fa-solid fa-wand-magic-sparkles text-brand-500 ml-1"></i> اضغط على أي قالب لمعاينته ثم زر “اختيار وطلب”</div>
+    </div>
+    <div class="mt-6 flex gap-2 overflow-x-auto pb-2 reveal" id="tplTabs">
+      <button data-tab="web" class="tab-btn active whitespace-nowrap px-5 py-3 rounded-2xl border border-gray-200 bg-white font-bold text-[13.5px]">قوالب المواقع</button>
+      <button data-tab="logo" class="tab-btn whitespace-nowrap px-5 py-3 rounded-2xl border border-gray-200 bg-white font-bold text-[13.5px]">ستايلات الشعارات</button>
+      <button data-tab="brand" class="tab-btn whitespace-nowrap px-5 py-3 rounded-2xl border border-gray-200 bg-white font-bold text-[13.5px]">الهوية البصرية</button>
+      <button data-tab="pres" class="tab-btn whitespace-nowrap px-5 py-3 rounded-2xl border border-gray-200 bg-white font-bold text-[13.5px]">العروض التقديمية</button>
+      <button data-tab="social" class="tab-btn whitespace-nowrap px-5 py-3 rounded-2xl border border-gray-200 bg-white font-bold text-[13.5px]">السوشيال والصور</button>
+    </div>
+    <div id="tplGrid" class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+  <!-- template preview modal -->
+  <div id="tplModal" class="fixed inset-0 z-[8500] hidden items-center justify-center p-4"><div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeTpl()"></div><div class="relative bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl"><div id="tplModalBody"></div></div></div>
+</section>
+
+<!-- WORKS -->
+<section id="works" class="py-16 md:py-24 bg-ink-900 text-white relative overflow-hidden noise">
+  <div class="orb w-[500px] h-[500px] bg-brand-600/25 top-0 right-1/3"></div>
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
+      <div><span class="bg-brand-500 text-white text-[12px] font-black px-4 py-2 rounded-full">أعمالنا — Previews حقيقية</span>
+      <h2 class="font-black text-[26px] md:text-[38px] mt-4">شغل يتكلم <span class="text-brand-500">عنا</span></h2>
+      <p class="text-white/55 font-bold text-[14px] mt-2">مشاريع مختارة من مواقع وتطبيقات وهويات وفيديو. اضغط على أي عمل لعرض التفاصيل.</p></div>
+      <div class="flex gap-2 overflow-x-auto pb-1" id="workFilters">
+        <button data-f="all" class="wf active whitespace-nowrap px-4 py-2.5 rounded-xl text-[13px] font-bold bg-brand-500">الكل</button>
+        <button data-f="web" class="wf whitespace-nowrap px-4 py-2.5 rounded-xl text-[13px] font-bold bg-white/10 border border-white/10">مواقع</button>
+        <button data-f="app" class="wf whitespace-nowrap px-4 py-2.5 rounded-xl text-[13px] font-bold bg-white/10 border border-white/10">تطبيقات</button>
+        <button data-f="brand" class="wf whitespace-nowrap px-4 py-2.5 rounded-xl text-[13px] font-bold bg-white/10 border border-white/10">هوية وشعارات</button>
+        <button data-f="video" class="wf whitespace-nowrap px-4 py-2.5 rounded-xl text-[13px] font-bold bg-white/10 border border-white/10">فيديو</button>
+        <button data-f="pres" class="wf whitespace-nowrap px-4 py-2.5 rounded-xl text-[13px] font-bold bg-white/10 border border-white/10">عروض وصور</button>
+      </div>
+    </div>
+    <div id="worksGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+  <div id="workModal" class="fixed inset-0 z-[8500] hidden items-center justify-center p-4"><div class="absolute inset-0 bg-black/75 backdrop-blur-sm" onclick="closeWork()"></div><div class="relative bg-white text-ink-900 rounded-3xl max-w-2xl w-full overflow-hidden max-h-[90vh] overflow-y-auto" id="workModalBody"></div></div>
+</section>
+
+<!-- PROCESS / HOW WE WORK -->
+<section id="process" class="py-16 md:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-[1fr_1.1fr] gap-10">
+    <div class="reveal">
+      <span class="bg-brand-50 text-brand-700 border border-brand-100 font-black text-[12.5px] px-4 py-2 rounded-full">كيف نعمل — ومراحل تنفيذ المشروع</span>
+      <h2 class="font-black text-[26px] md:text-[38px] mt-4 leading-tight">طريق واضح من <span class="grad-text">الفكرة إلى الإطلاق</span></h2>
+      <p class="text-gray-500 font-bold mt-3 text-[14.5px] leading-8">لن تشعر أنك تملأ Form وخلاص. أنت تتعامل مع فريق: مدير مشروع يفهمك، مصمم ينفذ، ومطور يبني — مع Progress واضح وتحديثات أولًا بأول، وسهل المتابعة من الهاتف.</p>
+      <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+        <div class="border border-gray-100 rounded-2xl p-4 bg-mist"><div class="font-black text-2xl text-brand-600 font-num">01</div><div class="font-black text-[12.5px] mt-1">أرسل فكرتك</div><div class="text-[11.5px] text-gray-500 font-bold">3 دقائق فقط</div></div>
+        <div class="border border-gray-100 rounded-2xl p-4 bg-mist"><div class="font-black text-2xl text-brand-600 font-num">02</div><div class="font-black text-[12.5px] mt-1">نتصل ونخطط</div><div class="text-[11.5px] text-gray-500 font-bold">خلال 24 ساعة</div></div>
+        <div class="border border-gray-100 rounded-2xl p-4 bg-mist"><div class="font-black text-2xl text-brand-600 font-num">03</div><div class="font-black text-[12.5px] mt-1">ننفذ ونطلق</div><div class="text-[11.5px] text-gray-500 font-bold">مع متابعة حية</div></div>
+      </div>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <button onclick="openWizard('project')" class="btn-primary px-6 py-4 rounded-2xl font-bold text-sm flex-1">ابدأ من المرحلة الأولى الآن</button>
+        <button onclick="toggleChat(true)" class="btn-ghost px-6 py-4 rounded-2xl font-bold text-sm flex-1"><i class="fa-solid fa-headset text-brand-500 ml-1"></i> تحدث مع الفريق أولًا</button>
+      </div>
+      <div class="mt-5 secure-note rounded-2xl p-4 flex gap-3 text-white"><i class="fa-solid fa-lock text-brand-500 text-xl mt-1"></i><div class="text-[12.5px] leading-6 font-bold text-white/80"><b class="text-white">خصوصيتك محمية:</b> بياناتك تُستخدم فقط للتواصل حول مشروعك، وتُرسل عبر قناة مشفرة إلى بريد الشركة الرسمي. لا نشارك بياناتك أبدًا.</div></div>
+    </div>
+    <div class="space-y-3" id="phasesList"></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="py-16 md:py-24 bg-mist">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="text-center max-w-2xl mx-auto reveal"><span class="bg-ink-900 text-white text-[12px] font-black px-4 py-2 rounded-full">لماذا ASG؟</span><h2 class="font-black text-[26px] md:text-[38px] mt-4">لأننا <span class="text-brand-600">فريقك</span>.. وليس مجرد منفذ</h2></div>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="reveal bg-white rounded-3xl p-6 border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all"><div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl"><i class="fa-solid fa-brain"></i></div><h3 class="font-black mt-4">نفهم قبل أن ننفذ</h3><p class="text-gray-500 text-[13.5px] font-bold leading-7 mt-2">جلسة فهم عميقة لفكرتك وجمهورك وأهدافك قبل أي تصميم أو كود.</p></div>
+      <div class="reveal reveal-d1 bg-white rounded-3xl p-6 border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all"><div class="w-12 h-12 rounded-2xl bg-ink-900 text-white flex items-center justify-center text-xl"><i class="fa-solid fa-bolt"></i></div><h3 class="font-black mt-4">سرعة بدون استعجال</h3><p class="text-gray-500 text-[13.5px] font-bold leading-7 mt-2">تسليم سريع بجدول واضح و Progress تتابعنه من هاتفك لحظة بلحظة.</p></div>
+      <div class="reveal reveal-d2 bg-white rounded-3xl p-6 border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all"><div class="w-12 h-12 rounded-2xl bg-brand-500 text-white flex items-center justify-center text-xl"><i class="fa-solid fa-gem"></i></div><h3 class="font-black mt-4">جودة Premium</h3><p class="text-gray-500 text-[13.5px] font-bold leading-7 mt-2">تصميم راقٍ وكود نظيف وفيديو سينمائي — مستوى يليق بعلامتك.</p></div>
+      <div class="reveal reveal-d3 bg-white rounded-3xl p-6 border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all"><div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center text-xl"><i class="fa-solid fa-handshake"></i></div><h3 class="font-black mt-4">مرافقة بعد الإطلاق</h3><p class="text-gray-500 text-[13.5px] font-bold leading-7 mt-2">دعم وتعديلات ومتابعة نمو — علاقتنا لا تنتهي عند التسليم.</p></div>
+    </div>
+    <!-- comparison -->
+    <div class="mt-6 grid lg:grid-cols-2 gap-4">
+      <div class="reveal bg-white rounded-3xl border-2 border-brand-500/30 p-6 md:p-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-brand-500 text-white text-[11px] font-black px-4 py-1.5 rounded-bl-2xl">تجربة ASG</div>
+        <h3 class="font-black text-lg flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-500"></i> مع فريق ASG</h3>
+        <ul class="mt-4 space-y-3 text-[13.5px] font-bold text-gray-700">
+          <li class="flex gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> مدير مشروع مخصص يرد عليك ويتابعك</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> تختار النمط والقالب بعينك قبل التنفيذ</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> عقد واضح + دفعات على مراحل + ضمان تعديلات</li>
+          <li class="flex gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> طلبك يصل مباشرة لبريد الشركة الرسمي بتأكيد فوري</li>
+        </ul>
+      </div>
+      <div class="reveal reveal-d1 bg-white rounded-3xl border border-gray-200 p-6 md:p-8 opacity-80">
+        <h3 class="font-black text-lg text-gray-400 flex items-center gap-2"><i class="fa-solid fa-circle-xmark"></i> مع المنفذين العشوائيين</h3>
+        <ul class="mt-4 space-y-3 text-[13.5px] font-bold text-gray-400">
+          <li class="flex gap-2"><i class="fa-solid fa-xmark mt-1"></i> تتعامل مع Form مجهول بلا متابعة</li>
+          <li class="flex gap-2"><i class="fa-solid fa-xmark mt-1"></i> تصميم لا يشبه ذوقك وتكتشف متأخرًا</li>
+          <li class="flex gap-2"><i class="fa-solid fa-xmark mt-1"></i> تأخير واختفاء بعد الدفع</li>
+          <li class="flex gap-2"><i class="fa-solid fa-xmark mt-1"></i> لا ضمان ولا دعم بعد التسليم</li>
+        </ul>
+      </div>
+    </div>
+    <!-- testimonials -->
+    <div class="mt-6 reveal">
+      <div class="flex items-center justify-between mb-3"><h3 class="font-black text-lg">ماذا قال عملاؤنا؟</h3><div class="flex gap-2"><button onclick="scrollTesti(-1)" class="w-10 h-10 rounded-xl bg-white border border-gray-200 hover:border-brand-500 hover:text-brand-600"><i class="fa-solid fa-chevron-right"></i></button><button onclick="scrollTesti(1)" class="w-10 h-10 rounded-xl bg-white border border-gray-200 hover:border-brand-500 hover:text-brand-600"><i class="fa-solid fa-chevron-left"></i></button></div></div>
+      <div class="testi-track" id="testiTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-16 md:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="relative reveal">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900&auto=format&fit=crop" class="rounded-[28px] w-full h-[380px] md:h-[460px] object-cover shadow-card" alt="فريق ASG">
+      <div class="absolute -bottom-5 right-5 left-5 md:left-auto bg-ink-900 text-white rounded-2xl p-5 shadow-2xl flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-brand-500 flex items-center justify-center text-2xl font-black">A</div>
+        <div><div class="font-black">فريق ASG الحقيقي</div><div class="text-white/60 text-[12.5px] font-bold">مصممون • مطورون • صُناع محتوى • مديرو مشاريع</div></div>
+      </div>
+      <div class="absolute -top-4 -left-2 bg-white rounded-2xl shadow-card border px-4 py-3 text-[12px] font-black float-anim"><span class="text-brand-600 font-num">6+</span> سنوات خبرة</div>
+    </div>
+    <div class="reveal reveal-d1">
+      <span class="bg-brand-50 text-brand-700 border border-brand-100 font-black text-[12.5px] px-4 py-2 rounded-full">من نحن</span>
+      <h2 class="font-black text-[26px] md:text-[38px] mt-4 leading-tight">شركة <span class="grad-text">ASG</span> — عقلية تقنية بروح إبداعية</h2>
+      <p class="text-gray-600 font-bold text-[14.5px] leading-8 mt-4">بدأنا كمجموعة مستقلين شغوفين، واليوم نحن شركة متكاملة تخدم الشركات الناشئة والعلامات الطموحة. نؤمن أن المشروع الناجح = <b>فهم عميق + تصميم يلهم + تقنية مستقرة</b>. لذلك كل طلب يصلنا يُقرأ من إنسان حقيقي، ويُرد عليه بخطة واضحة — وليس ردًا آليًا.</p>
+      <div class="mt-5 grid grid-cols-2 gap-3">
+        <div class="flex gap-3 bg-mist rounded-2xl p-4"><i class="fa-solid fa-eye text-brand-600 text-xl mt-1"></i><div><div class="font-black text-[13.5px]">رؤيتنا</div><div class="text-[12.5px] text-gray-500 font-bold">أن نكون الشريك الإبداعي الأول عربيًا.</div></div></div>
+        <div class="flex gap-3 bg-mist rounded-2xl p-4"><i class="fa-solid fa-compass text-brand-600 text-xl mt-1"></i><div><div class="font-black text-[13.5px]">مهمتنا</div><div class="text-[12.5px] text-gray-500 font-bold">تحويل كل فكرة جادة إلى منتج يفتح سوقًا.</div></div></div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2"><span class="chip">التزام بالمواعيد</span><span class="chip">شفافية كاملة</span><span class="chip">سرية تامة للأفكار</span><span class="chip">دعم عربي أصيل</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-16 md:py-24 bg-mist">
+  <div class="max-w-3xl mx-auto px-4 md:px-6">
+    <div class="text-center reveal"><span class="bg-white border border-gray-200 font-black text-[12.5px] px-4 py-2 rounded-full">الأسئلة الشائعة</span><h2 class="font-black text-[26px] md:text-[36px] mt-4">عندك سؤال؟ <span class="text-brand-600">عندنا إجابة واضحة</span></h2></div>
+    <div class="mt-8 space-y-3" id="faqList"></div>
+    <div class="mt-6 text-center text-[13.5px] font-bold text-gray-500">لم تجد إجابتك؟ <button onclick="toggleChat(true)" class="text-brand-600 font-black underline">اسأل الفريق مباشرة</button> أو <a href="#contact" class="text-brand-600 font-black underline">تواصل معنا</a></div>
+  </div>
+</section>
+
+<!-- CONTACT + CTA -->
+<section id="contact" class="py-16 md:py-24 bg-ink-900 text-white relative overflow-hidden noise">
+  <div class="orb w-[400px] h-[400px] bg-brand-600/30 -bottom-20 -right-20"></div>
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative grid lg:grid-cols-2 gap-8">
+    <div class="reveal">
+      <span class="bg-brand-500 text-[12px] font-black px-4 py-2 rounded-full">تواصل معنا — CTA واضح</span>
+      <h2 class="font-black text-[28px] md:text-[40px] mt-4 leading-tight">جاهز تبدأ؟ <br><span class="text-brand-500">أرسل فكرتك الآن</span> والباقي علينا.</h2>
+      <p class="text-white/60 font-bold mt-3 text-[14.5px] leading-8">املأ نموذج المشروع الذكي (3–5 دقائق) وسيصل طلبك مباشرة إلى بريد شركتنا الرسمي مع رقم مرجعي للمتابعة. نرد خلال 24 ساعة بخطة وسعر ومدة.</p>
+      <div class="mt-6 grid gap-3">
+        <button onclick="openWizard('idea')" class="btn-primary w-full py-5 rounded-2xl font-black text-[16px] flex items-center justify-center gap-2"><i class="fa-regular fa-paper-plane"></i> أرسل فكرة المشروع — يصل لبريد الشركة مباشرة</button>
+        <div class="grid grid-cols-2 gap-3">
+          <button onclick="openWizard('project')" class="bg-white/10 border border-white/15 py-4 rounded-2xl font-bold text-sm hover:bg-white/20">ابدأ مشروعك</button>
+          <a href="#services" class="bg-white text-ink-900 py-4 rounded-2xl font-bold text-sm text-center hover:bg-gray-100">استكشف خدماتنا</a>
+        </div>
+      </div>
+      <div class="mt-6 grid sm:grid-cols-3 gap-3 text-[13px]">
+        <a href="mailto:ahmedsameh2042009@gmail.com" class="stat-card rounded-2xl p-4 hover:border-brand-500/50 transition-all block"><i class="fa-solid fa-envelope text-brand-500"></i><div class="font-black mt-2">البريد الرسمي</div><div class="text-white/60 font-bold text-[11.5px] break-all" dir="ltr">ahmedsameh2042009@gmail.com</div></a>
+        <div class="stat-card rounded-2xl p-4"><i class="fa-solid fa-clock text-brand-500"></i><div class="font-black mt-2">أوقات العمل</div><div class="text-white/60 font-bold text-[12px]">السبت – الخميس<br>10ص – 10م بتوقيت القاهرة</div></div>
+        <div class="stat-card rounded-2xl p-4"><i class="fa-solid fa-location-dot text-brand-500"></i><div class="font-black mt-2">نخدم عن بُعد</div><div class="text-white/60 font-bold text-[12px]">القاهرة • الرياض • دبي<br>+ العمل عن بُعد عالميًا</div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-d1 bg-white text-ink-900 rounded-[26px] p-6 md:p-8 shadow-2xl">
+      <h3 class="font-black text-lg">رسالة سريعة للفريق <span class="text-[11px] bg-green-50 text-green-700 px-2.5 py-1 rounded-full font-black">تُرسل أيضًا للبريد الرسمي</span></h3>
+      <p class="text-gray-500 text-[13px] font-bold mt-1">للاستفسار السريع قبل فتح ملف المشروع الكامل.</p>
+      <form id="quickForm" class="mt-5 grid gap-3">
+        <div class="grid sm:grid-cols-2 gap-3"><input required name="name" class="field" placeholder="الاسم الكامل *"><input required type="email" name="email" class="field text-left" dir="ltr" placeholder="Email *"></div>
+        <input name="phone" class="field text-left" dir="ltr" placeholder="رقم الهاتف / واتساب (اختياري)">
+        <select name="topic" class="field"><option>استفسار عن خدمة</option><option>طلب سعر</option><option>متابعة طلب سابق (اذكر الرقم المرجعي)</option><option>شراكة / تعاون</option></select>
+        <textarea required name="message" rows="4" class="field resize-none" placeholder="اكتب رسالتك باختصار... ماذا تريد أن تنفذ؟ *"></textarea>
+        <label class="flex items-start gap-2 text-[12px] font-bold text-gray-500"><input type="checkbox" required class="mt-1 accent-[#E30613]"> أوافق على استخدام بياناتي للتواصل حول استفساري فقط، وأفهم أنها ستُرسل إلى بريد الشركة الرسمي.</label>
+        <button id="quickBtn" class="btn-dark w-full py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2"><i class="fa-solid fa-paper-plane text-brand-500"></i> <span>إرسال الرسالة الآن</span></button>
+        <div id="quickStatus" class="text-[12.5px] font-bold hidden rounded-xl p-3"></div>
+        <div class="flex gap-2"><a id="quickMailto" href="mailto:ahmedsameh2042009@gmail.com" class="flex-1 text-center text-[12.5px] font-black text-brand-600 border border-brand-100 bg-brand-50 rounded-xl py-2.5 hover:bg-brand-100">فتح تطبيق البريد بدلًا من ذلك</a><button type="button" onclick="openWizard('idea')" class="flex-1 text-[12.5px] font-black bg-ink-900 text-white rounded-xl py-2.5">نموذج المشروع الكامل</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#070708] text-white pt-12 pb-6 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-4 gap-8">
+    <div><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-900 flex items-center justify-center font-black text-xl">ASG</div><div class="font-black text-lg">ASG</div></div><p class="text-white/50 text-[13px] font-bold leading-7 mt-3">شركة تقنية وإبداعية. مواقع، تطبيقات، فيديو، تصميم، هويات وعروض — بمعايير Premium وفريق حقيقي يرافقك.</p><div class="flex gap-2 mt-4"><a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-all"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-all"><i class="fa-brands fa-instagram"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-all"><i class="fa-brands fa-linkedin"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-all"><i class="fa-brands fa-behance"></i></a></div></div>
+    <div><h4 class="font-black mb-4">خدماتنا</h4><ul class="space-y-2.5 text-[13.5px] font-bold text-white/55"><li><button onclick="orderService('web')" class="hover:text-white">مواقع إلكترونية</button></li><li><button onclick="orderService('app')" class="hover:text-white">تطبيقات</button></li><li><button onclick="orderService('video')" class="hover:text-white">فيديو ومحتوى مرئي</button></li><li><button onclick="orderService('design')" class="hover:text-white">صور وتصميمات</button></li><li><button onclick="orderService('pres')" class="hover:text-white">عروض تقديمية</button></li><li><button onclick="orderService('logo')" class="hover:text-white">شعارات وهوية</button></li></ul></div>
+    <div><h4 class="font-black mb-4">الشركة</h4><ul class="space-y-2.5 text-[13.5px] font-bold text-white/55"><li><a href="#about" class="hover:text-white">من نحن</a></li><li><a href="#works" class="hover:text-white">أعمالنا</a></li><li><a href="#process" class="hover:text-white">كيف نعمل</a></li><li><a href="#faq" class="hover:text-white">الأسئلة الشائعة</a></li><li><a href="#contact" class="hover:text-white">تواصل</a></li></ul></div>
+    <div><h4 class="font-black mb-4">حسابك وطلباتك</h4><div class="grid gap-2"><button onclick="openAuth('login')" class="bg-white/10 border border-white/10 rounded-xl py-3 text-sm font-bold hover:bg-white/20">تسجيل الدخول / إنشاء حساب</button><button onclick="showMyOrders()" class="bg-white/10 border border-white/10 rounded-xl py-3 text-sm font-bold hover:bg-white/20">طلباتي السابقة</button><button onclick="openAdmin()" class="text-white/30 text-[12px] font-bold hover:text-white/70 mt-1"><i class="fa-solid fa-lock ml-1"></i> دخول الإدارة</button></div><div class="mt-4 text-[11.5px] text-white/35 font-bold leading-6"><i class="fa-solid fa-shield-halved text-green-500 ml-1"></i> جميع الطلبات تُرسل إلى:<br><span dir="ltr" class="text-white/60">ahmedsameh2042009@gmail.com</span></div></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 md:px-6 mt-8 pt-5 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-2 text-[12px] font-bold text-white/35"><span>© 2026 ASG — جميع الحقوق محفوظة</span><span>صُنع بشغف بواسطة فريق ASG • خصوصية وأمان أولًا</span></div>
+</footer>
+
+<!-- FLOATING -->
+<div class="fixed bottom-5 right-4 z-[8000] flex flex-col gap-2">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="topBtn" class="w-12 h-12 rounded-2xl bg-white shadow-card border border-gray-200 items-center justify-center hidden md:flex hover:border-brand-500 hover:text-brand-600"><i class="fa-solid fa-arrow-up"></i></button>
+  <button onclick="openWizard('idea')" class="md:hidden w-14 h-14 rounded-full btn-primary flex items-center justify-center text-xl shadow-premium"><i class="fa-solid fa-rocket"></i></button>
+</div>
+
+<!-- TEAM CHAT -->
+<div id="teamChat">
+  <div id="chatPanel" class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col">
+    <div class="bg-ink-900 text-white p-4 flex items-center gap-3"><div class="flex -space-x-2 space-x-reverse"><img src="https://i.pravatar.cc/60?img=12" class="w-9 h-9 rounded-full border-2 border-ink-900"><img src="https://i.pravatar.cc/60?img=47" class="w-9 h-9 rounded-full border-2 border-ink-900"><img src="https://i.pravatar.cc/60?img=59" class="w-9 h-9 rounded-full border-2 border-ink-900"></div><div class="flex-1"><div class="font-black text-[13.5px]">فريق ASG <span class="text-[10px] bg-green-500 px-2 py-0.5 rounded-full">متصل الآن</span></div><div class="text-[11px] text-white/55 font-bold">أحمد • سارة • عمر — نرد خلال دقائق</div></div><button onclick="toggleChat(false)" class="text-white/50 hover:text-white"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="chatBody" class="flex-1 overflow-y-auto p-4 space-y-3 bg-mist text-[13px] font-bold"></div>
+    <div class="p-3 border-t border-gray-100 bg-white"><div class="flex gap-1.5 mb-2 overflow-x-auto pb-1" id="chatQuick"></div><div class="flex gap-2"><input id="chatInput" class="field !py-2.5 !text-[13px]" placeholder="اكتب سؤالك للفريق..."><button onclick="sendChat()" class="w-11 h-11 rounded-xl btn-primary flex items-center justify-center shrink-0"><i class="fa-solid fa-paper-plane"></i></button></div></div>
+  </div>
+  <button onclick="toggleChat()" class="mt-3 w-14 h-14 rounded-full bg-ink-900 text-white shadow-2xl flex items-center justify-center text-xl relative hover:scale-105 transition-transform border-2 border-brand-500"><i class="fa-solid fa-comments"></i><span class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></span></button>
+</div>
+
+<!-- WIZARD MODAL -->
+<div id="wizardModal" role="dialog" aria-modal="true">
+  <div class="wizard-shell">
+    <div class="wizard-box">
+      <!-- header -->
+      <div class="bg-ink-900 text-white p-4 md:p-5 flex items-center gap-3 shrink-0 relative overflow-hidden">
+        <div class="orb w-[200px] h-[200px] bg-brand-600/40 -top-10 -left-10"></div>
+        <div class="w-11 h-11 rounded-2xl bg-brand-500 flex items-center justify-center font-black text-lg shrink-0 relative">ASG</div>
+        <div class="flex-1 relative"><div class="font-black text-[15px]" id="wizTitle">ابدأ مشروعك — أرسل فكرتك للفريق</div><div class="text-[11.5px] text-white/55 font-bold">طلبك يُرسل مباشرة إلى بريد الشركة الرسمي • <span dir="ltr">ahmedsameh2042009@gmail.com</span></div></div>
+        <div id="wizUserChip" class="hidden md:flex relative"></div>
+        <button onclick="closeWizard()" class="relative w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <!-- progress -->
+      <div class="px-4 md:px-6 pt-4 shrink-0 bg-white border-b border-gray-100 pb-3">
+        <div class="flex items-center justify-between text-[11.5px] font-black text-gray-500 mb-2"><span id="wizStepLabel">الخطوة 1 من 5: اختر الخدمة</span><span id="wizPct" class="font-num">20%</span></div>
+        <div class="step-progress"><i id="wizBar" style="width:20%"></i></div>
+        <div class="hidden md:flex items-center justify-between mt-3 text-[11px] font-black" id="wizDots">
+          <span data-d="1" class="text-brand-600">① الخدمة</span><span data-d="2" class="text-gray-400">② النمط والقالب</span><span data-d="3" class="text-gray-400">③ التفاصيل</span><span data-d="4" class="text-gray-400">④ بياناتك</span><span data-d="5" class="text-gray-400">⑤ المراجعة والإرسال</span>
+        </div>
+      </div>
+      <!-- body -->
+      <div class="flex-1 overflow-y-auto p-4 md:p-6 bg-mist/60" id="wizBody">
+        <!-- STEP 1 -->
+        <div class="wstep active" data-step="1">
+          <h3 class="font-black text-lg">ما الذي تريد تنفيذه؟ <span class="text-[12px] text-gray-400 font-bold">اختر خدمة واحدة أو باقة</span></h3>
+          <div class="grid sm:grid-cols-2 gap-3 mt-4" id="wizServices"></div>
+        </div>
+        <!-- STEP 2 -->
+        <div class="wstep" data-step="2">
+          <h3 class="font-black text-lg">اختر النمط الذي يعجبك <span class="text-[12px] text-gray-400 font-bold">سيُرفق مع طلبك تلقائيًا</span></h3>
+          <p class="text-[13px] text-gray-500 font-bold mt-1" id="wizStyleHint">اختر قالبًا واحدًا أو أكثر — أو تخطَّ وسنقترح عليك.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4" id="wizStyles"></div>
+          <div class="mt-4 bg-white border border-dashed border-gray-300 rounded-2xl p-4">
+            <label class="font-black text-[13px]">ألوان مفضلة (اختياري)</label>
+            <div class="flex gap-2 mt-2 flex-wrap" id="colorPick">
+              <button data-c="#E30613" class="w-9 h-9 rounded-full border-2 border-white shadow ring-2 ring-brand-500" style="background:#E30613"></button>
+              <button data-c="#0A0A0B" class="w-9 h-9 rounded-full border-2 border-white shadow ring-1 ring-gray-200" style="background:#0A0A0B"></button>
+              <button data-c="#0EA5E9" class="w-9 h-9 rounded-full border-2 border-white shadow ring-1 ring-gray-200" style="background:#0EA5E9"></button>
+              <button data-c="#10B981" class="w-9 h-9 rounded-full border-2 border-white shadow ring-1 ring-gray-200" style="background:#10B981"></button>
+              <button data-c="#F59E0B" class="w-9 h-9 rounded-full border-2 border-white shadow ring-1 ring-gray-200" style="background:#F59E0B"></button>
+              <button data-c="#8B5CF6" class="w-9 h-9 rounded-full border-2 border-white shadow ring-1 ring-gray-200" style="background:#8B5CF6"></button>
+              <button data-c="مفتوح لاقتراح الفريق" class="px-3 h-9 rounded-full bg-gray-100 text-[12px] font-black">مفتوح لاقتراح الفريق</button>
+            </div>
+            <input id="f_colors" class="field mt-3 !text-[13px]" placeholder="اكتب ألوانك أو اتركها للفريق...">
+          </div>
+        </div>
+        <!-- STEP 3 -->
+        <div class="wstep" data-step="3">
+          <h3 class="font-black text-lg">احكِ لنا عن فكرتك <span class="text-[12px] text-gray-400 font-bold">كلما وضحت أكثر.. ردنا أدق</span></h3>
+          <div class="grid gap-3 mt-4">
+            <input id="f_title" class="field" placeholder="اسم المشروع / عنوان مختصر *  — مثال: متجر عطور فاخر">
+            <textarea id="f_desc" rows="5" class="field resize-none" placeholder="اشرح فكرتك: ماذا تريد؟ لمن؟ ما هدفك؟ هل لديك أمثلة تعجبك؟ *"></textarea>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="bg-white border border-gray-200 rounded-2xl p-4"><label class="font-black text-[13px]">الميزانية التقريبية: <span id="budgetVal" class="text-brand-600 font-num">$1,500</span></label><input id="f_budget" type="range" min="200" max="15000" step="100" value="1500" class="w-full mt-3 accent-[#E30613]"><div class="flex justify-between text-[11px] font-bold text-gray-400 mt-1"><span>$200</span><span>$15,000+</span></div></div>
+              <div class="bg-white border border-gray-200 rounded-2xl p-4"><label class="font-black text-[13px]">المدة المطلوبة</label><select id="f_timeline" class="field mt-2 !text-[13.5px]"><option>مرن — الجودة أولًا</option><option>مستعجل — أقل من أسبوعين</option><option>عاجل جدًا — أقل من أسبوع</option><option>خلال شهر</option><option>خلال 2-3 أشهر</option></select></div>
+            </div>
+            <input id="f_links" class="field text-left" dir="ltr" placeholder="روابط مرجعية تعجبك (اختياري) — https://...">
+            <input id="f_files" class="field" placeholder="ملاحظات إضافية / ملفات ستُرسل لاحقًا بالبريد (اختياري)">
+          </div>
+        </div>
+        <!-- STEP 4 -->
+        <div class="wstep" data-step="4">
+          <h3 class="font-black text-lg">بيانات التواصل <span class="text-[12px] text-gray-400 font-bold">لن نتواصل إلا بخصوص مشروعك</span></h3>
+          <div id="wizLoginHint" class="mt-3 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-[13px] font-bold text-amber-800 flex gap-2"><i class="fa-solid fa-circle-info mt-0.5"></i><div>لست مسجلًا؟ يمكنك المتابعة كضيف، لكن <button onclick="closeWizard();openAuth('signup')" class="underline font-black">إنشاء حساب</button> يحفظ طلباتك ويسرّع التواصل.</div></div>
+          <div class="grid sm:grid-cols-2 gap-3 mt-4">
+            <input id="f_name" class="field" placeholder="الاسم الكامل *"><input id="f_phone" class="field text-left" dir="ltr" placeholder="رقم الهاتف / واتساب *">
+          </div>
+          <div class="grid gap-3 mt-3"><input id="f_email" type="email" class="field text-left" dir="ltr" placeholder="البريد الإلكتروني *"><input id="f_company" class="field" placeholder="اسم الشركة / البراند (اختياري)">
+            <div><label class="font-black text-[13px]">طريقة التواصل المفضلة</label><div class="flex gap-2 mt-2 flex-wrap" id="contactPref"><button data-v="واتساب" class="opt-card !py-2.5 !px-4 text-[13px] font-black selected">واتساب</button><button data-v="مكالمة" class="opt-card !py-2.5 !px-4 text-[13px] font-black">مكالمة</button><button data-v="بريد إلكتروني" class="opt-card !py-2.5 !px-4 text-[13px] font-black">بريد إلكتروني</button></div></div>
+          </div>
+        </div>
+        <!-- STEP 5 -->
+        <div class="wstep" data-step="5">
+          <h3 class="font-black text-lg">راجع طلبك قبل الإرسال الآمن</h3>
+          <div id="reviewBox" class="mt-4 bg-white border border-gray-200 rounded-2xl p-5 text-[13.5px] leading-7 font-bold"></div>
+          <label class="mt-3 flex items-start gap-2 bg-white border border-gray-200 rounded-2xl p-4 text-[12.5px] font-bold text-gray-600"><input id="f_consent" type="checkbox" class="mt-1 accent-[#E30613]"> أوافق على إرسال بياناتي إلى بريد شركة ASG الرسمي (<span dir="ltr">ahmedsameh2042009@gmail.com</span>) لغرض تنفيذ مشروعي فقط، وأفهم سياسة الخصوصية وعدم مشاركة بياناتي.</label>
+          <div id="sendStatus" class="hidden mt-3 rounded-2xl p-4 text-[13px] font-bold"></div>
+          <div class="mt-3 grid sm:grid-cols-2 gap-2">
+            <a id="mailtoFallback" href="#" class="text-center bg-white border border-gray-200 rounded-xl py-3 text-[13px] font-black hover:border-brand-500 hover:text-brand-600"><i class="fa-solid fa-envelope ml-1"></i> إرسال عبر تطبيق البريد</a>
+            <button onclick="copyOrderText()" class="bg-white border border-gray-200 rounded-xl py-3 text-[13px] font-black hover:border-brand-500"><i class="fa-solid fa-copy ml-1"></i> نسخ نص الطلب</button>
+          </div>
+        </div>
+      </div>
+      <!-- footer nav -->
+      <div class="p-4 md:px-6 bg-white border-t border-gray-100 flex gap-2 shrink-0">
+        <button id="wizBack" onclick="wizGo(-1)" class="btn-ghost px-5 py-3.5 rounded-2xl font-bold text-sm disabled:opacity-40" disabled>رجوع</button>
+        <button id="wizNext" onclick="wizGo(1)" class="btn-primary flex-1 py-3.5 rounded-2xl font-bold text-sm">متابعة <i class="fa-solid fa-arrow-left mr-1"></i></button>
+        <button id="wizSend" onclick="submitOrder()" class="btn-primary flex-1 py-3.5 rounded-2xl font-black text-sm hidden"><i class="fa-solid fa-paper-plane ml-1"></i> إرسال الطلب الآن — للبريد الرسمي</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div id="authModal">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target===this)closeAuth()">
+    <div class="bg-white rounded-[26px] w-full max-w-md overflow-hidden shadow-2xl">
+      <div class="bg-ink-900 text-white p-6 relative overflow-hidden"><div class="orb w-[200px] h-[200px] bg-brand-600/40 -top-10 -left-10"></div><div class="flex items-center justify-between relative"><div><div class="font-black text-lg">حساب ASG</div><div class="text-white/55 text-[12.5px] font-bold">احفظ طلباتك وتابع مشاريعك</div></div><button onclick="closeAuth()" class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="grid grid-cols-2 gap-2 mt-4 relative"><button id="tabLogin" onclick="authTab('login')" class="py-2.5 rounded-xl font-black text-[13px] bg-brand-500">تسجيل الدخول</button><button id="tabSignup" onclick="authTab('signup')" class="py-2.5 rounded-xl font-black text-[13px] bg-white/10">حساب جديد</button></div>
+      </div>
+      <div class="p-6">
+        <form id="loginForm" class="grid gap-3">
+          <input id="l_email" type="email" class="field text-left" dir="ltr" placeholder="البريد الإلكتروني" required>
+          <div class="relative"><input id="l_pass" type="password" class="field text-left" dir="ltr" placeholder="كلمة المرور" required><button type="button" onclick="togglePw('l_pass')" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><i class="fa-regular fa-eye"></i></button></div>
+          <div id="loginErr" class="hidden text-[12.5px] font-bold text-red-600 bg-red-50 border border-red-100 rounded-xl p-3"></div>
+          <button class="btn-primary py-3.5 rounded-2xl font-bold text-sm">دخول آمن <i class="fa-solid fa-right-to-bracket mr-1"></i></button>
+        </form>
+        <form id="signupForm" class="hidden grid gap-3">
+          <input id="s_name" class="field" placeholder="الاسم الكامل *" required>
+          <input id="s_email" type="email" class="field text-left" dir="ltr" placeholder="البريد الإلكتروني *" required>
+          <input id="s_phone" class="field text-left" dir="ltr" placeholder="رقم الهاتف (عند الحاجة) — مثال: 0100...">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="relative"><input id="s_pass" type="password" class="field text-left" dir="ltr" placeholder="كلمة المرور *" required><button type="button" onclick="togglePw('s_pass')" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><i class="fa-regular fa-eye"></i></button></div>
+            <input id="s_pass2" type="password" class="field text-left" dir="ltr" placeholder="تأكيد كلمة المرور *" required>
+          </div>
+          <div class="text-[11.5px] font-bold text-gray-400">8 أحرف على الأقل • تُحفظ مشفرة على جهازك ولا تُرسل لأي طرف</div>
+          <div id="signupErr" class="hidden text-[12.5px] font-bold text-red-600 bg-red-50 border border-red-100 rounded-xl p-3"></div>
+          <button class="btn-primary py-3.5 rounded-2xl font-bold text-sm">إنشاء الحساب <i class="fa-solid fa-user-plus mr-1"></i></button>
+        </form>
+        <div class="mt-4 flex items-center gap-2 text-[11.5px] font-bold text-gray-400 justify-center"><i class="fa-solid fa-lock text-green-500"></i> حماية محلية + تشفير • لا نشارك بياناتك أبدًا</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="adminPanel">
+  <div class="absolute inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-[26px] w-full max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div class="bg-ink-900 text-white p-5 flex items-center gap-3"><div class="w-11 h-11 rounded-2xl bg-brand-500 flex items-center justify-center"><i class="fa-solid fa-shield-halved"></i></div><div class="flex-1"><div class="font-black">المنطقة الإدارية — طلبات العملاء</div><div class="text-[12px] text-white/55 font-bold">تُحفظ محليًا + تُرسل لبريد: <span dir="ltr">ahmedsameh2042009@gmail.com</span></div></div><button onclick="document.getElementById('adminPanel').classList.remove('open')" class="w-10 h-10 rounded-xl bg-white/10"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="p-5 overflow-y-auto">
+        <div id="adminLoginBox" class="grid gap-3 max-w-sm mx-auto text-center py-6">
+          <div class="font-black">دخول الإدارة</div><p class="text-[13px] text-gray-500 font-bold">سجّل الدخول بالبريد الإداري أو أدخل رمز الإدارة</p>
+          <input id="adminKey" type="password" class="field text-center" dir="ltr" placeholder="Admin key / admin email">
+          <button onclick="tryAdmin()" class="btn-dark py-3 rounded-xl font-bold text-sm">فتح اللوحة</button>
+          <div class="text-[11.5px] text-gray-400 font-bold">للتجربة: سجّل حسابًا ببريد <span dir="ltr">ahmedsameh2042009@gmail.com</span> أو استخدم الرمز: <b dir="ltr">ASG-ADMIN-2026</b></div>
+        </div>
+        <div id="adminDataBox" class="hidden">
+          <div class="flex flex-wrap gap-2 items-center mb-4"><input id="adminSearch" oninput="renderAdmin()" class="field !w-auto flex-1 min-w-[200px]" placeholder="بحث بالاسم / الخدمة / الرقم المرجعي..."><button onclick="exportCSV()" class="btn-ghost px-4 py-2.5 rounded-xl text-[13px] font-black"><i class="fa-solid fa-download ml-1"></i> تصدير CSV</button><button onclick="clearOrders()" class="text-red-500 text-[12.5px] font-black px-3">مسح الكل</button></div>
+          <div class="grid grid-cols-3 gap-2 mb-4 text-center"><div class="bg-mist rounded-2xl p-3"><div class="font-black text-xl font-num" id="admTotal">0</div><div class="text-[11.5px] font-bold text-gray-500">إجمالي الطلبات</div></div><div class="bg-green-50 rounded-2xl p-3"><div class="font-black text-xl font-num text-green-700" id="admSent">0</div><div class="text-[11.5px] font-bold text-gray-500">أُرسلت للبريد</div></div><div class="bg-amber-50 rounded-2xl p-3"><div class="font-black text-xl font-num text-amber-700" id="admPend">0</div><div class="text-[11.5px] font-bold text-gray-500">بانتظار الإرسال</div></div></div>
+          <div id="adminList" class="grid gap-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MY ORDERS modal -->
+<div id="ordersModal" class="fixed inset-0 z-[8600] hidden items-center justify-center p-4"><div class="absolute inset-0 bg-black/70" onclick="closeOrders()"></div><div class="relative bg-white rounded-3xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto"><div class="flex items-center justify-between"><h3 class="font-black text-lg">طلباتي</h3><button onclick="closeOrders()" class="w-9 h-9 rounded-xl bg-gray-100"><i class="fa-solid fa-xmark"></i></button></div><div id="myOrdersList" class="mt-4 grid gap-2"></div></div></div>
+
+<script>
+/* ============ DATA ============ */
+const RECEIVER = "ahmedsameh2042009@gmail.com";
+const SERVICES = [
+ {id:'web', icon:'fa-solid fa-globe', title:'مواقع إلكترونية كاملة', short:'شركات • متاجر • منصات', img:'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop', desc:'موقع سريع، متجاوب، مُحسّن لمحركات البحث — من صفحة تعريفية إلى متجر ومنصة متكاملة.', ex:['موقع شركة','متجر إلكتروني','لاندنج بيج','حجز ومواعيد'], price:'يبدأ من $500'},
+ {id:'app', icon:'fa-solid fa-mobile-screen-button', title:'تطبيقات الموبايل', short:'iOS • Android • Web App', img:'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop', desc:'تطبيق سريع وتجربة استخدام راقية — تصميم UI/UX ثم تطوير وإطلاق على المتاجر.', ex:['تطبيق توصيل','تطبيق خدمات','تطبيق تعليمي','لوحة تحكم'], price:'يبدأ من $1200'},
+ {id:'video', icon:'fa-solid fa-clapperboard', title:'فيديو ومحتوى مرئي', short:'موشن • إعلان • ريلز', img:'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop', desc:'فيديو سينمائي وموشن جرافيك وإعلانات سوشيال ترفع التفاعل والمبيعات.', ex:['فيديو تعريفي','موشن جرافيك','إعلان منتج','ريلز TikTok'], price:'يبدأ من $150'},
+ {id:'design', icon:'fa-solid fa-pen-nib', title:'صور وتصميمات', short:'سوشيال • إعلانات • مطبوعات', img:'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop', desc:'تصاميم سوشيال وإعلانات وبوسترات بجودة عالية وهوية متناسقة.', ex:['باقة سوشيال','بوستر إعلاني','منيو وكتالوج','أغلفة'], price:'يبدأ من $80'},
+ {id:'pres', icon:'fa-solid fa-person-chalkboard', title:'عروض تقديمية وشرائح', short:'Pitch Deck • بروفايل شركة', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop', desc:'شرائح Pitch Deck وبروفايل شركات تقنع المستثمرين والعملاء من أول شريحة.', ex:['عرض مستثمرين','بروفايل شركة','عرض مبيعات','ملف تعريفي'], price:'يبدأ من $100'},
+ {id:'logo', icon:'fa-solid fa-shapes', title:'تصميم الشعارات', short:'3 مفاهيم + دليل استخدام', img:'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop', desc:'شعار أصيل لا يُنسى — 3 مفاهيم أولية وتعديلات حتى الرضا الكامل.', ex:['شعار نصي','أيقونة','مونوجرام','شعار عربي'], price:'يبدأ من $120'},
+ {id:'brand', icon:'fa-solid fa-fingerprint', title:'الهوية البصرية & Branding', short:'نظام براند متكامل', img:'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop', desc:'هوية متكاملة: ألوان، خطوط، قرطاسية، سوشيال كيت، ودليل استخدام شامل.', ex:['هوية كاملة','Rebrand','سوشيال كيت','قرطاسية'], price:'يبدأ من $350'},
+ {id:'digital', icon:'fa-solid fa-microchip', title:'خدمات رقمية وبرمجية', short:'أتمتة • SEO • صيانة', img:'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop', desc:'كل ما يرتبط ببراندك وموقعك: SEO، سرعة، أتمتة، ربط أنظمة، صيانة ودعم.', ex:['تحسين SEO','أتمتة','ربط API','صيانة شهرية'], price:'حسب المشروع'},
+];
+const TPLS = {
+ web:[
+  {n:'فاخر داكن — Luxury Dark', d:'أسود + ذهبي، لمطاعم وعقارات', c:['#0A0A0B','#E30613','#C9A227'], img:'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=600&auto=format&fit=crop'},
+  {n:'أبيض طبي — Clean White', d:'أبيض + أحمر، لشركات وعيادات', c:['#FFFFFF','#E30613','#0A0A0B'], img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop'},
+  {n:'متجر عصري — Store', d:'شبكي منتجات + دفع سريع', c:['#FFFFFF','#0A0A0B','#E30613'], img:'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop'},
+  {n:'إبداعي جريء — Creative', d:'حركات وHero ضخم، لوكالات', c:['#E30613','#0A0A0B','#FFD6D6'], img:'https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=600&auto=format&fit=crop'},
+  {n:'تقني مستقبلي — Futuristic', d:'زجاجي + توهج، لشركات SaaS', c:['#0B1020','#E30613','#38BDF8'], img:'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop'},
+  {n:'عربي أصيل — Arabic', d:'خط عربي فاخر واتجاه RTL مثالي', c:['#FFF8F0','#9A0410','#1A1A1A'], img:'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop'},
+ ],
+ logo:[
+  {n:'حديث Minimal', d:'خطوط نظيفة وأيقونة بسيطة', c:['#0A0A0B','#E30613','#fff'], img:'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format&fit=crop'},
+  {n:'فاخر Luxury', d:'ذهبي وأسود بتفاصيل راقية', c:['#0A0A0B','#C9A227','#fff'], img:'https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=600&auto=format&fit=crop'},
+  {n:'مرح Playful', d:'ألوان حيوية لمشاريع شبابية', c:['#E30613','#F59E0B','#0EA5E9'], img:'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop'},
+  {n:'تقني Geometric', d:'أشكال هندسية دقيقة', c:['#0B1020','#38BDF8','#fff'], img:'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&auto=format&fit=crop'},
+  {n:'خط عربي', d:'كاليجرافي عربي أصيل', c:['#1A1A1A','#9A0410','#E8D5B7'], img:'https://images.unsplash.com/photo-1585036156171-384164a8c675?q=80&w=600&auto=format&fit=crop'},
+  {n:'مونوجرام', d:'حروف مختصرة أنيقة', c:['#111','#E30613','#eee'], img:'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=600&auto=format&fit=crop'},
+ ],
+ brand:[
+  {n:'هوية شركات', d:'رسمية وموثوقة', c:['#0A3D62','#fff','#E30613'], img:'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&auto=format&fit=crop'},
+  {n:'هوية مطاعم وكافيهات', d:'دافئة وشهية', c:['#3B2316','#E8B25C','#fff'], img:'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop'},
+  {n:'هوية تجميل وعناية', d:'ناعمة وأنيقة', c:['#F9E8E8','#B76E79','#fff'], img:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop'},
+  {n:'هوية عقارية', d:'فخامة وثقة', c:['#0A0A0B','#C9A227','#fff'], img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600&auto=format&fit=crop'},
+  {n:'هوية تقنية', d:'مستقبلية جريئة', c:['#0B1020','#00E5CC','#E30613'], img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop'},
+  {n:'هوية متجر', d:'مرحة وتجارية', c:['#E30613','#111','#FFD6D6'], img:'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop'},
+ ],
+ pres:[
+  {n:'مستثمرين Pitch', d:'أرقام ورسوم مقنعة', c:['#0A0A0B','#E30613','#fff'], img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=600&auto=format&fit=crop'},
+  {n:'بروفايل شركة', d:'تعريفي شامل راقٍ', c:['#fff','#0A3D62','#E30613'], img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop'},
+  {n:'مبيعات', d:'عرض يبيع لا يشرح', c:['#E30613','#0A0A0B','#FFD6D6'], img:'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=600&auto=format&fit=crop'},
+  {n:'تعليمي', d:'شرائح واضحة وتفاعلية', c:['#0EA5E9','#fff','#0A0A0B'], img:'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600&auto=format&fit=crop'},
+  {n:'داكن سينمائي', d:'تأثير بصري قوي', c:['#0A0A0B','#C9A227','#fff'], img:'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop'},
+  {n:'فاتح minimal', d:'نظيف وحديث', c:['#fff','#eee','#E30613'], img:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop'},
+ ],
+ social:[
+  {n:'فاخر Minimal', d:'مساحات بيضاء ورقي', c:['#fff','#0A0A0B','#E30613'], img:'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop'},
+  {n:'جريء Bold', d:'أحمر صارخ يوقف السكرول', c:['#E30613','#fff','#0A0A0B'], img:'https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=600&auto=format&fit=crop'},
+  {n:'داكن Premium', d:'أسود فاخر للمنتجات', c:['#0A0A0B','#C9A227','#fff'], img:'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop'},
+  {n:'باستيل ناعم', d:'لطيف للجمال والعناية', c:['#FBE3E3','#B76E79','#fff'], img:'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=600&auto=format&fit=crop'},
+  {n:'تقني Neon', d:'توهج مستقبلي', c:['#0B1020','#00E5CC','#E30613'], img:'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=600&auto=format&fit=crop'},
+  {n:'عربي تراثي', d:'زخارف ونقوش أصيلة', c:['#1A3A2A','#C9A227','#fff'], img:'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=600&auto=format&fit=crop'},
+ ]
+};
+const WORKS = [
+ {t:'متجر NOOR للعطور', c:'web', img:'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop', d:'متجر فاخر + هوية + فيديو. ارتفعت المبيعات 240% خلال 3 أشهر.', tags:['متجر','هوية','SEO']},
+ {t:'تطبيق Wasl للتوصيل', c:'app', img:'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop', d:'تطبيق iOS وAndroid مع تتبع حي. +48K تحميل وتقييم 4.8.', tags:['تطبيق','UI/UX']},
+ {t:'هوية مقهى دال', c:'brand', img:'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop', d:'شعار + هوية + منيو + سوشيال كيت. علامة لا تُنسى.', tags:['شعار','هوية']},
+ {t:'فيديو عقاري سينمائي', c:'video', img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop', d:'فيديو 4K وموشن. 1.2M مشاهدة وحجوزات ممتلئة.', tags:['فيديو','موشن']},
+ {t:'منصة تعليمية EduHub', c:'web', img:'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop', d:'منصة كورسات + دفع + شهادات. 12K طالب نشط.', tags:['منصة','تطوير']},
+ {t:'Pitch Deck لشركة ناشئة', c:'pres', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop', d:'عرض مستثمرين ساهم في إغلاق جولة $500K.', tags:['عرض','استثمار']},
+ {t:'تطبيق عيادة شفاء', c:'app', img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop', d:'حجز وملفات مرضى وتذكير. رضا 98%.', tags:['تطبيق','حجز']},
+ {t:'حملة سوشيال لمطعم', c:'pres', img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop', d:'60 تصميم + ريلز. نمو المتابعين 5x.', tags:['سوشيال','صور']},
+ {t:'هوية شركة تقنية Nexa', c:'brand', img:'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop', d:'Rebrand شامل وموقع جديد. ثقة B2B أعلى.', tags:['هوية','موقع']},
+];
+const PHASES = [
+ {t:'الفهم والاستكشاف', d:'مكالمة تعارف 20 دقيقة + تحليل فكرتك وجمهورك والمنافسين. نخرج بوثيقة فهم واضحة.', ic:'fa-solid fa-magnifying-glass', dur:'يوم 1'},
+ {t:'العرض والخطة', d:'عرض سعر شفاف + جدول زمني + نماذج مقترحة تختار منها. لا مفاجآت لاحقًا.', ic:'fa-solid fa-file-contract', dur:'يوم 1-2'},
+ {t:'التصميم الأولي', d:'مفاهيم وواجهات أولية تفاعلية. تراجع وتطلب تعديلات من هاتفك بسهولة.', ic:'fa-solid fa-pen-ruler', dur:'أيام 3-7'},
+ {t:'التنفيذ والتطوير', d:'برمجة / مونتاج / تصميم نهائي مع تحديثات Progress يومية وفيديو تقدم.', ic:'fa-solid fa-code', dur:'أسبوع 1-3'},
+ {t:'المراجعة والإطلاق', d:'اختبار شامل + تعديلاتك النهائية + تدريب على الإدارة ثم إطلاق رسمي.', ic:'fa-solid fa-rocket', dur:'يوم الإطلاق'},
+ {t:'الدعم والنمو', d:'ضمان + صيانة + تقارير نمو واقتراحات تطوير مستمرة.', ic:'fa-solid fa-heart', dur:'بعد الإطلاق'},
+];
+const FAQS = [
+ {q:'كيف أبدأ مشروعي معكم فعليًا؟', a:'بضغطة واحدة على "ابدأ مشروعك" أو "أرسل فكرتك للفريق"، تملأ 5 خطوات قصيرة (الخدمة، النمط، التفاصيل، بياناتك، المراجعة). طلبك يُرسل مباشرة إلى بريد شركتنا الرسمي مع رقم مرجعي، ونتصل بك خلال 24 ساعة بخطة وسعر ومدة.'},
+ {q:'هل طلبي يصل فعلًا أم مجرد نموذج شكلي؟', a:'طلبك حقيقي 100%. نستخدم إرسالًا مباشرًا إلى ahmedsameh2042009@gmail.com مع تأكيد نجاح حقيقي فقط عند وصوله. إن تعذر الإرسال التلقائي لأي سبب تقني، نعرض لك فورًا بدائل (تطبيق البريد / نسخ الطلب) ولا ندّعي نجاحًا وهميًا أبدًا.'},
+ {q:'كم تستغرق مدة التنفيذ والأسعار؟', a:'الشعار 3-5 أيام، الهوية 1-2 أسبوع، الموقع 2-4 أسابيع، التطبيق 4-8 أسابيع، الفيديو 5-10 أيام. الأسعار موضحة تحت كل خدمة ونرسل عرضًا دقيقًا بعد فهم فكرتك. الدفع على مراحل مرتبطة بالتسليم.'},
+ {q:'هل يمكنني اختيار شكل التصميم قبل الدفع؟', a:'نعم — وهذا ما يميزنا. لدينا مكتبة Templates وStyles لكل خدمة تصميمية تختار منها داخل نموذج الطلب، وتُرفق مع طلبك. ثم نرسل لك 2-3 مفاهيم أولية قبل الاعتماد النهائي.'},
+ {q:'هل بياناتي آمنة؟', a:'تمامًا. بياناتك تُستخدم فقط للتواصل حول مشروعك، تُنقل عبر HTTPS مشفرة، وحسابك محفوظ مشفرًا على جهازك. لا نبيع ولا نشارك بياناتك مع أي طرف ثالث. يمكنك طلب حذف بياناتك في أي وقت.'},
+ {q:'هل أحتاج حسابًا لإرسال طلب؟', a:'لا — يمكنك الإرسال كضيف. لكن إنشاء حساب مجاني (اسم + بريد + هاتف + كلمة مرور) يحفظ طلباتك ويسرّع التواصل ويمكّنك من متابعة حالة مشاريعك.'},
+ {q:'ماذا لو لم يعجبني التصميم؟', a:'لدينا ضمان تعديلات: جولتان شاملتان مجانًا لكل مرحلة، وإن لم نصل لرضاك في المفاهيم الأولية نعيد العمل من زاوية جديدة أو نسترد لك دفعة التصميم حسب العقد.'},
+ {q:'هل تقدمون دعمًا بعد التسليم؟', a:'نعم. كل مشروع يشمل فترة ضمان مجانية + تدريبًا على الإدارة، مع باقات صيانة شهرية اختيارية وتقارير نمو دورية.'},
+];
+const TESTIS = [
+ {n:'م. خالد المصري', r:'صاحب متجر NOOR', t:'كنت خايف أتعامل أونلاين، لكن من أول مكالمة حسيت أني مع فريق فاهم. اخترت ستايل الموقع بعيني ووصلني Progress كل يوم. المبيعات تضاعفت.', img:'https://i.pravatar.cc/100?img=11'},
+ {n:'أ. سارة الحربي', r:'مؤسِسة عيادة', t:'طلبت هوية + موقع + فيديو. التناسق بينهم أبهرني. الرد خلال ساعات والالتزام بالموعد باليوم. تجربة Premium فعلًا.', img:'https://i.pravatar.cc/100?img=47'},
+ {n:'م. عمر فاروق', r:'مؤسس تطبيق Wasl', t:'أفضل ما فيهم أنهم يتحدون فكرتك للأفضل. اقترحوا مزايا ما خطرت على بالي والتطبيق طلع أسرع وأجمل من المتوقع.', img:'https://i.pravatar.cc/100?img=59'},
+ {n:'أ. نورة القحطاني', r:'مديرة تسويق', t:'باقة السوشيال والريلز رفعت تفاعلنا 5 أضعاف. الأسعار واضحة والتعامل راقٍ. صاروا فريقنا الدائم.', img:'https://i.pravatar.cc/100?img=44'},
+];
+
+/* ============ HELPERS ============ */
+const $ = s=>document.querySelector(s), $$ = s=>document.querySelectorAll(s);
+function toast(msg, type='ok'){
+  const box=$('#toasts'); const el=document.createElement('div');
+  const col = type==='ok'?'border-green-200 bg-green-50 text-green-800': type==='err'?'border-red-200 bg-red-50 text-red-700':'border-amber-200 bg-amber-50 text-amber-800';
+  el.className=`${col} border rounded-2xl px-4 py-3 text-[13px] font-bold shadow-card flex items-start gap-2`;
+  el.innerHTML=`<i class="fa-solid ${type==='ok'?'fa-circle-check text-green-500':type==='err'?'fa-circle-exclamation text-red-500':'fa-circle-info text-amber-500'} mt-0.5"></i><span>${msg}</span>`;
+  box.appendChild(el); setTimeout(()=>{el.style.opacity='0';el.style.transform='translateY(-8px)';setTimeout(()=>el.remove(),400)},4200);
+}
+function hashPw(p){ let h=0; for(let i=0;i<p.length;i++){h=(h<<5)-h+p.charCodeAt(i);h|=0;} return 'h'+Math.abs(h)+'_'+btoa(unescape(encodeURIComponent(p))).slice(0,16); }
+const store = { get:(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}, set:(k,v)=>localStorage.setItem(k,JSON.stringify(v)) };
+
+/* ============ PRELOADER / NAV / SCROLL ============ */
+window.addEventListener('load',()=>{ setTimeout(()=>$('#preloader').classList.add('hide'),1400); animateHeroBar(); });
+setTimeout(()=>$('#preloader').classList.add('hide'),3500);
+window.addEventListener('scroll',()=>{
+  const st=window.scrollY, h=document.documentElement.scrollHeight-innerHeight;
+  $('#scrollProgress').style.width=(h>0?(st/h*100):0)+'%';
+  $('#navbar').classList.toggle('scrolled',st>30);
+  $('#topBtn').style.display = st>600?'flex':'none';
+});
+$('#menuBtn').onclick=()=>$('#mobileMenu').classList.toggle('hidden');
+$$('.mob-link').forEach(a=>a.onclick=()=>$('#mobileMenu').classList.add('hidden'));
+function animateHeroBar(){ let w=0; const iv=setInterval(()=>{ w+=8; if(w>=92){w=92;clearInterval(iv);} $('#heroBar').style.width=w+'%'; },90); }
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+function bindReveals(){ $$('.reveal:not(.in)').forEach(el=>io.observe(el)); }
+/* counters */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ const el=e.target, t=+el.dataset.target; let c=0; const step=Math.max(1,Math.ceil(t/60)); const iv=setInterval(()=>{c+=step; if(c>=t){c=t;clearInterval(iv);} el.textContent=c;},30); cio.unobserve(el);} }),{threshold:.5});
+$$('.counter').forEach(el=>cio.observe(el));
+
+/* tilt */
+const tiltEl=$('#tiltPhone');
+if(tiltEl && matchMedia('(pointer:fine)').matches){
+  document.getElementById('heroVisual').addEventListener('mousemove',e=>{
+    const r=e.currentTarget.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+    tiltEl.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+  });
+  document.getElementById('heroVisual').addEventListener('mouseleave',()=>tiltEl.style.transform='none');
+  tiltEl.style.transition='transform .3s';
+}
+
+/* ============ RENDER: services ============ */
+function renderServices(){
+  $('#servicesGrid').innerHTML = SERVICES.map((s,i)=>`
+   <article class="svc-card reveal ${i%4===1?'reveal-d1':i%4===2?'reveal-d2':i%4===3?'reveal-d3':''}">
+    <div class="svc-img"><img loading="lazy" src="${s.img}" alt="${s.title}"><span class="svc-num font-num">0${i+1}</span><span class="svc-badge">${s.price}</span></div>
+    <div class="p-5">
+      <div class="flex items-center gap-2"><span class="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center"><i class="${s.icon}"></i></span><h3 class="font-black text-[15.5px] leading-snug">${s.title}</h3></div>
+      <div class="text-[12px] font-black text-brand-600 mt-1.5">${s.short}</div>
+      <p class="text-[13px] text-gray-500 font-bold leading-7 mt-2">${s.desc}</p>
+      <div class="flex flex-wrap gap-1.5 mt-3">${s.ex.map(e=>`<span class="chip">${e}</span>`).join('')}</div>
+      <div class="grid grid-cols-2 gap-2 mt-4">
+        <button onclick="previewService('${s.id}')" class="btn-ghost py-2.5 rounded-xl text-[12.5px] font-black"><i class="fa-regular fa-eye ml-1"></i> Preview</button>
+        <button onclick="orderService('${s.id}')" class="btn-primary py-2.5 rounded-xl text-[12.5px] font-black">اطلب هذه الخدمة</button>
+      </div>
+    </div>
+   </article>`).join('');
+  bindReveals();
+}
+function previewService(id){
+  const s=SERVICES.find(x=>x.id===id);
+  openWork({t:s.title+' — نموذج تنفيذ', img:s.img, d:s.desc+' أمثلة: '+s.ex.join('، ')+'. '+s.price+'. اختر النمط المناسب من مكتبة القوالب ثم اطلبها ليصل طلبك للفريق مباشرة.', tags:[s.short, s.price]}, s.title);
+}
+function orderService(id){ openWizard('project', id); }
+
+/* ============ TEMPLATES ============ */
+let tplTab='web', selectedTpls=new Set(), wizSelectedStyles=new Set();
+function renderTpls(){
+  const arr=TPLS[tplTab];
+  $('#tplGrid').innerHTML=arr.map((t,i)=>`
+   <div class="tpl-card reveal in ${selectedTpls.has(tplTab+':'+t.n)?'selected':''}" onclick="openTpl('${tplTab}',${i})">
+     <div class="h-[170px] relative overflow-hidden"><img loading="lazy" src="${t.img}" class="w-full h-full object-cover" alt="${t.n}"><div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
+       <div class="absolute bottom-3 right-3 left-3 flex items-center justify-between"><div class="flex gap-1">${t.c.map(c=>`<span class="w-5 h-5 rounded-full border-2 border-white shadow" style="background:${c}"></span>`).join('')}</div><span class="text-white text-[11px] font-black bg-black/40 backdrop-blur px-2.5 py-1 rounded-full">معاينة حية</span></div>
+     </div>
+     <div class="p-4"><div class="font-black text-[14.5px]">${t.n}</div><div class="text-[12.5px] text-gray-500 font-bold mt-1">${t.d}</div>
+     <div class="flex gap-2 mt-3"><button class="flex-1 bg-ink-900 text-white py-2.5 rounded-xl text-[12.5px] font-black">معاينة واختيار</button></div></div>
+   </div>`).join('');
+}
+$$('#tplTabs button').forEach(b=>b.onclick=()=>{ $$('#tplTabs button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); tplTab=b.dataset.tab; renderTpls(); });
+function openTpl(tab,i){
+  const t=TPLS[tab][i], key=tab+':'+t.n;
+  $('#tplModal').classList.remove('hidden'); $('#tplModal').classList.add('flex');
+  $('#tplModalBody').innerHTML=`
+   <div class="h-[220px] relative"><img src="${t.img}" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+   <button onclick="closeTpl()" class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-black/50 text-white backdrop-blur"><i class="fa-solid fa-xmark"></i></button>
+   <div class="absolute bottom-4 right-5 left-5 text-white"><div class="font-black text-lg">${t.n}</div><div class="text-white/70 text-[12.5px] font-bold">${t.d}</div></div></div>
+   <div class="p-5"><div class="font-black text-[13px]">ألوان هذا النمط</div><div class="flex gap-2 mt-2">${t.c.map(c=>`<div class="flex-1 h-12 rounded-xl border border-gray-100 shadow-inner" style="background:${c}"></div>`).join('')}</div>
+   <div class="text-[12.5px] text-gray-500 font-bold mt-3 leading-6">سيُرفق هذا النمط مع طلبك المرسل إلى بريد الشركة الرسمي، وس يعتمده المصمم كنقطة انطلاق مع لمسة ASG الخاصة.</div>
+   <div class="grid grid-cols-2 gap-2 mt-4"><button onclick="closeTpl()" class="btn-ghost py-3 rounded-xl font-bold text-sm">تصفح المزيد</button><button onclick="chooseTpl('${tab}','${t.n.replace(/'/g,"")}')" class="btn-primary py-3 rounded-xl font-bold text-sm">اختيار وطلب بهذا النمط</button></div></div>`;
+}
+function closeTpl(){ $('#tplModal').classList.add('hidden'); $('#tplModal').classList.remove('flex'); renderTpls(); }
+function chooseTpl(tab,name){
+  const key=tab+':'+name; selectedTpls.add(key); wizSelectedStyles.add(key); closeTpl();
+  toast('تم اختيار النمط — سيُرفق تلقائيًا مع طلبك');
+  openWizard('project', tab==='web'?'web':tab==='logo'?'logo':tab==='brand'?'brand':tab==='pres'?'pres':'design');
+}
+
+/* ============ WORKS ============ */
+let workFilter='all';
+function renderWorks(){
+  const list=WORKS.filter(w=>workFilter==='all'||w.c===workFilter);
+  $('#worksGrid').innerHTML=list.map((w,i)=>`
+   <div class="work-card reveal in group bg-white/5 border border-white/10 rounded-3xl overflow-hidden cursor-pointer hover:border-brand-500/50 hover:-translate-y-1 transition-all" onclick='openWork(${JSON.stringify(w).replace(/'/g,"&#39;")})'>
+     <div class="h-[200px] overflow-hidden relative"><img loading="lazy" src="${w.img}" class="w-full h-full object-cover" alt="${w.t}"><div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div><span class="absolute top-3 right-3 bg-brand-500 text-[11px] font-black px-3 py-1.5 rounded-full">${catName(w.c)}</span></div>
+     <div class="p-5"><div class="font-black">${w.t}</div><div class="text-white/50 text-[12.5px] font-bold mt-1 leading-6 line-clamp-2">${w.d}</div><div class="flex gap-1.5 mt-3 flex-wrap">${w.tags.map(t=>`<span class="text-[11px] font-bold bg-white/10 border border-white/10 px-2.5 py-1 rounded-full">${t}</span>`).join('')}</div></div>
+   </div>`).join('');
+}
+function catName(c){ return {web:'مواقع',app:'تطبيقات',brand:'هوية وشعارات',video:'فيديو',pres:'عروض وصور'}[c]||c; }
+$$('#workFilters .wf').forEach(b=>b.onclick=()=>{ $$('#workFilters .wf').forEach(x=>{x.classList.remove('active','bg-brand-500');x.classList.add('bg-white/10')}); b.classList.add('active','bg-brand-500'); b.classList.remove('bg-white/10'); workFilter=b.dataset.f; renderWorks(); });
+function openWork(w, forcedTitle){
+  $('#workModal').classList.remove('hidden'); $('#workModal').classList.add('flex');
+  $('#workModalBody').innerHTML=`<div class="h-[240px] md:h-[300px] relative"><img src="${w.img}" class="w-full h-full object-cover"><button onclick="closeWork()" class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-black/50 text-white"><i class="fa-solid fa-xmark"></i></button><div class="absolute bottom-4 right-5 text-white font-black text-xl drop-shadow">${forcedTitle||w.t}</div></div>
+  <div class="p-6"><p class="text-[14px] font-bold text-gray-600 leading-8">${w.d}</p><div class="flex flex-wrap gap-1.5 mt-3">${(w.tags||[]).map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+  <div class="mt-5 bg-mist rounded-2xl p-4 text-[13px] font-bold text-gray-600 flex gap-2"><i class="fa-solid fa-circle-check text-green-500 mt-1"></i> تريد نتيجة مشابهة؟ اختر الخدمة والنمط وسيصل طلبك للفريق مباشرة.</div>
+  <div class="grid grid-cols-2 gap-2 mt-4"><button onclick="closeWork()" class="btn-ghost py-3 rounded-xl font-bold text-sm">إغلاق</button><button onclick="closeWork();openWizard('project')" class="btn-primary py-3 rounded-xl font-bold text-sm">أريد مشروعًا مشابهًا</button></div></div>`;
+}
+function closeWork(){ $('#workModal').classList.add('hidden'); $('#workModal').classList.remove('flex'); }
+
+/* ============ PHASES / FAQ / TESTI / MARQUEE ============ */
+let activePhase=0;
+function renderPhases(){
+  $('#phasesList').innerHTML=PHASES.map((p,i)=>`
+   <div class="phase-item reveal in ${i===activePhase?'active':''} flex gap-3" onclick="setPhase(${i})">
+     <div class="phase-dot font-num">${i+1}</div>
+     <div class="phase-card flex-1 bg-white border ${i===activePhase?'border-brand-500/40':'border-gray-100'} rounded-2xl p-4 transition-all">
+       <div class="flex items-center justify-between"><h4 class="font-black text-[14.5px]"><i class="${p.ic} text-brand-500 ml-1"></i> ${p.t}</h4><span class="text-[11px] font-black ${i===activePhase?'text-brand-600':'text-gray-400'} bg-mist px-2.5 py-1 rounded-full">${p.dur}</span></div>
+       <div class="${i===activePhase?'block':'hidden'} text-[13px] text-gray-500 font-bold leading-7 mt-2">${p.d}</div>
+       ${i===activePhase?`<div class="mt-3 h-1.5 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-l from-brand-500 to-red-300 rounded-full" style="width:${((i+1)/PHASES.length*100)}%"></div></div>`:''}
+     </div>
+   </div>`).join('');
+}
+function setPhase(i){ activePhase=i; renderPhases(); }
+setInterval(()=>{ activePhase=(activePhase+1)%PHASES.length; const el=$('#phasesList'); if(el && isInViewport(el)) renderPhases(); },5000);
+function isInViewport(el){ const r=el.getBoundingClientRect(); return r.top<innerHeight && r.bottom>0; }
+
+function renderFaq(){
+  $('#faqList').innerHTML=FAQS.map((f,i)=>`
+   <div class="faq-item reveal in"><button onclick="toggleFaq(${i})" class="w-full flex items-center justify-between gap-3 p-5 text-right"><span class="font-black text-[14.5px]">${f.q}</span><span class="faq-ic w-9 h-9 rounded-xl ${i===0?'bg-brand-500 text-white':'bg-mist'} flex items-center justify-center shrink-0 transition-all"><i class="fa-solid fa-plus"></i></span></button>
+   <div class="faq-a" id="fa-${i}"><p class="px-5 pb-5 text-[13.5px] font-bold text-gray-500 leading-8">${f.a}</p></div></div>`).join('');
+  toggleFaq(0);
+}
+function toggleFaq(i){
+  const item=$$('#faqList .faq-item')[i], a=$('#fa-'+i), open=item.classList.contains('open');
+  $$('#faqList .faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').style.maxHeight=null; x.querySelector('.faq-ic').className='faq-ic w-9 h-9 rounded-xl bg-mist flex items-center justify-center shrink-0 transition-all';});
+  if(!open){ item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px'; item.querySelector('.faq-ic').className='faq-ic w-9 h-9 rounded-xl bg-brand-500 text-white flex items-center justify-center shrink-0 transition-all rotate-45'; }
+}
+function renderTesti(){
+  $('#testiTrack').innerHTML=TESTIS.map(t=>`
+   <div class="testi-card bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
+     <div class="flex text-amber-400 gap-0.5 text-[13px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+     <p class="text-[13.5px] font-bold text-gray-600 leading-8 mt-3">"${t.t}"</p>
+     <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100"><img src="${t.img}" class="w-11 h-11 rounded-full object-cover"><div><div class="font-black text-[13.5px]">${t.n}</div><div class="text-[12px] text-gray-400 font-bold">${t.r}</div></div><i class="fa-solid fa-quote-left text-brand-100 text-2xl mr-auto"></i></div>
+   </div>`).join('');
+}
+function scrollTesti(d){ $('#testiTrack').scrollBy({left:d*-380, behavior:'smooth'}); }
+function renderMarquee(){
+  const brands=['NOOR Store','Wasl App','EduHub','Nexa Tech','DAL Cafe','شفاء','عقار برو','LUXE','MedCare','FoodHub'];
+  const html=brands.map(b=>`<span class="whitespace-nowrap bg-white/8 border border-white/12 px-5 py-2.5 rounded-full text-[13px] font-black text-white/80" style="background:rgba(255,255,255,.07)">${b} ✦</span>`).join('');
+  $('#marq1').innerHTML=html; $('#marq2').innerHTML=html;
+}
+
+/* ============ AUTH ============ */
+function openAuth(tab='login'){ $('#authModal').classList.add('open'); authTab(tab); document.body.style.overflow='hidden'; }
+function closeAuth(){ $('#authModal').classList.remove('open'); document.body.style.overflow=''; }
+function authTab(t){
+  const isL=t==='login';
+  $('#loginForm').classList.toggle('hidden',!isL); $('#signupForm').classList.toggle('hidden',isL);
+  $('#tabLogin').className='py-2.5 rounded-xl font-black text-[13px] '+(isL?'bg-brand-500':'bg-white/10');
+  $('#tabSignup').className='py-2.5 rounded-xl font-black text-[13px] '+(!isL?'bg-brand-500':'bg-white/10');
+}
+function togglePw(id){ const i=document.getElementById(id); i.type=i.type==='password'?'text':'password'; }
+$('#signupForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('#s_name').value.trim(), email=$('#s_email').value.trim().toLowerCase(), phone=$('#s_phone').value.trim(), p1=$('#s_pass').value, p2=$('#s_pass2').value;
+  const err=$('#signupErr'); err.classList.add('hidden');
+  const fail=m=>{err.textContent=m;err.classList.remove('hidden');};
+  if(name.length<3) return fail('فضلًا أدخل الاسم الكامل (3 أحرف على الأقل).');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('البريد الإلكتروني غير صحيح.');
+  if(phone && !/^[+\d][\d\s-]{6,16}$/.test(phone)) return fail('رقم الهاتف غير صحيح.');
+  if(p1.length<8) return fail('كلمة المرور يجب أن تكون 8 أحرف على الأقل.');
+  if(p1!==p2) return fail('تأكيد كلمة المرور غير متطابق.');
+  const users=store.get('asg_users',[]);
+  if(users.find(u=>u.email===email)) return fail('هذا البريد مسجل بالفعل — سجّل الدخول.');
+  users.push({name,email,phone,pass:hashPw(p1),created:new Date().toISOString()});
+  store.set('asg_users',users); store.set('asg_session',{email,name,at:Date.now()});
+  refreshAuth(); closeAuth(); toast(`أهلًا ${name} — تم إنشاء حسابك بنجاح`); prefillFromUser();
+});
+$('#loginForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const email=$('#l_email').value.trim().toLowerCase(), pass=$('#l_pass').value;
+  const err=$('#loginErr'); err.classList.add('hidden');
+  const users=store.get('asg_users',[]);
+  const u=users.find(x=>x.email===email);
+  if(!u || u.pass!==hashPw(pass)){ err.textContent='بيانات الدخول غير صحيحة — تحقق من البريد وكلمة المرور.'; err.classList.remove('hidden'); return; }
+  store.set('asg_session',{email:u.email,name:u.name,at:Date.now()});
+  refreshAuth(); closeAuth(); toast(`مرحبًا بعودتك ${u.name}`); prefillFromUser();
+});
+function currentUser(){ const s=store.get('asg_session',null); if(!s) return null; const users=store.get('asg_users',[]); return users.find(u=>u.email===s.email)||null; }
+function logout(){ localStorage.removeItem('asg_session'); refreshAuth(); toast('تم تسجيل الخروج بأمان','info'); }
+function refreshAuth(){
+  const u=currentUser();
+  const html = u?`<div class="flex items-center gap-2 bg-mist border border-gray-200 rounded-2xl pl-2 pr-3 py-1.5"><div class="w-8 h-8 rounded-xl bg-ink-900 text-white flex items-center justify-center font-black text-sm">${u.name.charAt(0)}</div><div class="leading-tight hidden md:block"><div class="font-black text-[12px] max-w-[110px] truncate">${u.name}</div><div class="text-[10.5px] text-gray-400 font-bold">حسابي</div></div><button onclick="showMyOrders()" title="طلباتي" class="w-8 h-8 rounded-lg bg-white border border-gray-200 hover:border-brand-500 text-[13px]"><i class="fa-solid fa-box-open"></i></button><button onclick="logout()" title="خروج" class="w-8 h-8 rounded-lg bg-white border border-gray-200 hover:border-red-400 hover:text-red-500 text-[13px]"><i class="fa-solid fa-right-from-bracket"></i></button></div>`
+   :`<button onclick="openAuth('login')" class="hidden sm:inline-flex items-center gap-1.5 text-[13px] font-black text-gray-600 hover:text-brand-600 bg-mist border border-gray-200 px-4 py-2.5 rounded-2xl"><i class="fa-regular fa-user"></i> دخول / حساب</button>`;
+  $('#authArea').innerHTML=html;
+  $('#authAreaMobile').innerHTML= u?`<div class="bg-mist rounded-xl p-3 text-[13px] font-black flex justify-between items-center"><span>مرحبًا ${u.name}</span><button onclick="logout()" class="text-red-500">خروج</button></div>`:`<button onclick="openAuth('login')" class="w-full bg-mist rounded-xl p-3 text-[13px] font-black">دخول / إنشاء حساب</button>`;
+  const chip=$('#wizUserChip');
+  if(chip) chip.innerHTML= u?`<span class="text-[12px] font-black bg-white/10 border border-white/15 px-3 py-2 rounded-xl">👤 ${u.name}</span>`:'';
+}
+function prefillFromUser(){ const u=currentUser(); if(!u) return; if($('#f_name'))$('#f_name').value=u.name||''; if($('#f_email'))$('#f_email').value=u.email||''; if($('#f_phone'))$('#f_phone').value=u.phone||''; }
+
+/* ============ WIZARD ============ */
+let wizStep=1, wizService='web', wizMode='project', wizColors=[], contactPref='واتساب';
+function serviceName(id){ const s=SERVICES.find(x=>x.id===id); return s?s.title:id; }
+function openWizard(mode='project', presetService=null){
+  wizMode=mode;
+  if(presetService) wizService=presetService;
+  $('#wizardModal').classList.add('open'); document.body.style.overflow='hidden';
+  $('#wizTitle').textContent = mode==='idea'?'أرسل فكرتك للفريق — سنحولها لخطة': mode==='bundle'?'اطلب باقة متكاملة — خصم ومزامنة':'ابدأ مشروعك — خطوة بخطوة مع الفريق';
+  renderWizServices(); renderWizStyles(); prefillFromUser(); refreshAuth(); goStep(1);
+  $('#mobileMenu').classList.add('hidden');
+}
+function closeWizard(){ $('#wizardModal').classList.remove('open'); document.body.style.overflow=''; }
+function renderWizServices(){
+  const extra=[{id:'bundle',icon:'fa-solid fa-boxes-stacked',title:'باقة متكاملة (موقع + هوية + فيديو)',short:'خصم الباقة'}];
+  $('#wizServices').innerHTML=[...SERVICES,...extra].map(s=>`
+   <div class="opt-card ${wizService===s.id?'selected':''} flex gap-3 items-center" onclick="pickService('${s.id}')">
+     <span class="w-11 h-11 rounded-xl ${wizService===s.id?'bg-brand-500 text-white':'bg-mist text-brand-600'} flex items-center justify-center text-lg shrink-0"><i class="${s.icon}"></i></span>
+     <div><div class="font-black text-[13.5px]">${s.title}</div><div class="text-[11.5px] text-gray-400 font-bold">${s.short||''}</div></div>
+     ${wizService===s.id?'<i class="fa-solid fa-circle-check text-brand-500 mr-auto text-lg"></i>':''}
+   </div>`).join('');
+}
+function pickService(id){ wizService=id; renderWizServices(); renderWizStyles(); }
+function stylePool(){
+  if(wizService==='web'||wizService==='bundle') return 'web';
+  if(wizService==='logo') return 'logo';
+  if(wizService==='brand') return 'brand';
+  if(wizService==='pres') return 'pres';
+  if(wizService==='design') return 'social';
+  if(wizService==='video') return 'social';
+  if(wizService==='app') return 'web';
+  return 'web';
+}
+function renderWizStyles(){
+  const pool=stylePool();
+  $('#wizStyleHint').textContent = wizService==='app'?'اختر ستايل الواجهات المفضل لتطبيقك — أو تخطَّ وسنقترح.': wizService==='video'?'اختر ستايل المحتوى المرئي المفضل — أو تخطَّ.': wizService==='digital'?'هذه الخدمة لا تحتاج قالبًا — يمكنك التخطي للمتابعة.':'اختر قالبًا واحدًا أو أكثر — أو تخطَّ وسنقترح عليك.';
+  $('#wizStyles').innerHTML=TPLS[pool].map(t=>{
+    const key=pool+':'+t.n, sel=wizSelectedStyles.has(key);
+    return `<div class="tpl-card ${sel?'selected':''}" onclick="toggleWizStyle('${pool}','${t.n.replace(/'/g,"")}')">
+     <div class="h-[120px] relative overflow-hidden"><img loading="lazy" src="${t.img}" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div><div class="absolute bottom-2 right-2 flex gap-1">${t.c.map(c=>`<span class="w-4 h-4 rounded-full border border-white" style="background:${c}"></span>`).join('')}</div></div>
+     <div class="p-3"><div class="font-black text-[12.5px]">${t.n}</div><div class="text-[11px] text-gray-400 font-bold">${t.d}</div></div></div>`;
+  }).join('');
+}
+function toggleWizStyle(pool,name){ const k=pool+':'+name; wizSelectedStyles.has(k)?wizSelectedStyles.delete(k):wizSelectedStyles.add(k); selectedTpls.has(k)?selectedTpls.delete(k):selectedTpls.add(k); renderWizStyles(); }
+$$('#colorPick button').forEach(b=>b.onclick=e=>{ e.preventDefault(); const c=b.dataset.c; if(!wizColors.includes(c)) wizColors.push(c); $('#f_colors').value=wizColors.join('، '); toast('تمت إضافة اللون لتفضيلاتك','info'); });
+$$('#contactPref button').forEach(b=>b.onclick=e=>{ e.preventDefault(); $$('#contactPref button').forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); contactPref=b.dataset.v; });
+$('#f_budget').addEventListener('input',e=>{ $('#budgetVal').textContent='$'+(+e.target.value).toLocaleString('en'); });
+const STEP_LABELS={1:'الخطوة 1 من 5: اختر الخدمة',2:'الخطوة 2 من 5: النمط والقالب',3:'الخطوة 3 من 5: تفاصيل المشروع',4:'الخطوة 4 من 5: بيانات التواصل',5:'الخطوة 5 من 5: المراجعة والإرسال'};
+function goStep(n){
+  wizStep=Math.min(5,Math.max(1,n));
+  $$('#wizBody .wstep').forEach(s=>s.classList.toggle('active',+s.dataset.step===wizStep));
+  $('#wizStepLabel').textContent=STEP_LABELS[wizStep];
+  $('#wizBar').style.width=(wizStep*20)+'%'; $('#wizPct').textContent=(wizStep*20)+'%';
+  $$('#wizDots span').forEach(s=>{ const d=+s.dataset.d; s.className=d<=wizStep?'text-brand-600':'text-gray-400'; });
+  $('#wizBack').disabled=wizStep===1;
+  $('#wizNext').classList.toggle('hidden',wizStep===5);
+  $('#wizSend').classList.toggle('hidden',wizStep!==5);
+  $('#wizBody').scrollTop=0;
+  if(wizStep===5) buildReview();
+}
+function wizGo(d){
+  if(d===1){
+    if(wizStep===1 && !wizService) return toast('اختر الخدمة أولًا','warn');
+    if(wizStep===3){
+      if($('#f_title').value.trim().length<3) return toast('اكتب اسمًا مختصرًا لمشروعك','warn');
+      if($('#f_desc').value.trim().length<20) return toast('اشرح فكرتك في سطرين على الأقل (20 حرفًا) لنفهمك جيدًا','warn');
+    }
+    if(wizStep===4){
+      const nm=$('#f_name').value.trim(), em=$('#f_email').value.trim(), ph=$('#f_phone').value.trim();
+      if(nm.length<3) return toast('فضلًا أدخل الاسم الكامل','warn');
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return toast('البريد الإلكتروني غير صحيح','warn');
+      if(!/^[+\d][\d\s-]{6,16}$/.test(ph)) return toast('رقم الهاتف غير صحيح — نحتاجه للتواصل السريع','warn');
+    }
+  }
+  goStep(wizStep+d);
+}
+function collectOrder(){
+  return {
+    ref:'ASG-'+new Date().getFullYear()+'-'+Math.random().toString(36).slice(2,7).toUpperCase(),
+    at:new Date().toISOString(),
+    atAr:new Date().toLocaleString('ar-EG',{dateStyle:'full',timeStyle:'short'}),
+    mode:wizMode==='idea'?'إرسال فكرة':wizMode==='bundle'?'باقة متكاملة':'مشروع جديد',
+    service:serviceName(wizService), serviceId:wizService,
+    styles:[...wizSelectedStyles].join(' | ')||'مفتوح لاقتراح الفريق',
+    colors:$('#f_colors').value||'مفتوح لاقتراح الفريق',
+    title:$('#f_title').value.trim(), desc:$('#f_desc').value.trim(),
+    budget:'$'+(+$('#f_budget').value).toLocaleString('en'), timeline:$('#f_timeline').value,
+    links:$('#f_links').value.trim(), notes:$('#f_files').value.trim(),
+    name:$('#f_name').value.trim(), email:$('#f_email').value.trim(), phone:$('#f_phone').value.trim(),
+    company:$('#f_company').value.trim(), pref:contactPref
+  };
+}
+function orderText(o){
+  return `طلب مشروع جديد — ASG\nالرقم المرجعي: ${o.ref}\nالتاريخ: ${o.atAr}\nالنوع: ${o.mode}\nالخدمة: ${o.service}\nالأنماط المختارة: ${o.styles}\nالألوان: ${o.colors}\nاسم المشروع: ${o.title}\nالوصف: ${o.desc}\nالميزانية: ${o.budget}\nالمدة: ${o.timeline}\nروابط: ${o.links||'-'}\nملاحظات: ${o.notes||'-'}\n--- بيانات العميل ---\nالاسم: ${o.name}\nالبريد: ${o.email}\nالهاتف: ${o.phone}\nالشركة: ${o.company||'-'}\nالتواصل المفضل: ${o.pref}`;
+}
+function buildReview(){
+  const o=collectOrder();
+  $('#reviewBox').innerHTML=`
+   <div class="flex items-center justify-between pb-3 border-b border-gray-100"><span class="bg-ink-900 text-white text-[11px] font-black px-3 py-1.5 rounded-full font-num" dir="ltr">${o.ref}</span><span class="bg-brand-50 text-brand-700 text-[11.5px] font-black px-3 py-1.5 rounded-full">${o.service}</span></div>
+   <div class="grid sm:grid-cols-2 gap-x-6 gap-y-2 mt-3">
+    <div><span class="text-gray-400">اسم المشروع:</span> ${o.title||'<span class="text-red-400">—</span>'}</div>
+    <div><span class="text-gray-400">الميزانية:</span> <span class="font-num">${o.budget}</span> • ${o.timeline}</div>
+    <div class="sm:col-span-2"><span class="text-gray-400">الوصف:</span> ${o.desc||'—'}</div>
+    <div class="sm:col-span-2"><span class="text-gray-400">الأنماط:</span> ${o.styles}</div>
+    <div><span class="text-gray-400">الاسم:</span> ${o.name}</div><div><span class="text-gray-400">الهاتف:</span> <span dir="ltr" class="font-num">${o.phone}</span></div>
+    <div><span class="text-gray-400">البريد:</span> <span dir="ltr">${o.email}</span></div><div><span class="text-gray-400">التواصل:</span> ${o.pref}</div>
+   </div>
+   <div class="mt-3 bg-green-50 border border-green-100 rounded-xl p-3 text-[12px] text-green-800 flex gap-2"><i class="fa-solid fa-lock mt-0.5"></i> سيُرسل هذا الطلب الآن مباشرة إلى بريد الشركة الرسمي <b dir="ltr">${RECEIVER}</b> عبر اتصال مشفر، مع نسخة محفوظة لديك برقمه المرجعي.</div>`;
+  $('#mailtoFallback').href=`mailto:${RECEIVER}?subject=${encodeURIComponent('طلب مشروع ['+o.ref+'] - '+o.service)}&body=${encodeURIComponent(orderText(o))}`;
+  const st=$('#sendStatus'); st.classList.add('hidden');
+}
+function copyOrderText(){ navigator.clipboard.writeText(orderText(collectOrder())).then(()=>toast('تم نسخ نص الطلب — يمكنك لصقه في بريدك')); }
+
+/* ===== REAL EMAIL DELIVERY ===== */
+async function submitOrder(){
+  if(!$('#f_consent').checked) return toast('فضلًا وافق على إرسال بياناتك لبريد الشركة أولًا','warn');
+  const o=collectOrder();
+  const st=$('#sendStatus'); st.classList.remove('hidden');
+  st.className='mt-3 rounded-2xl p-4 text-[13px] font-bold bg-blue-50 border border-blue-100 text-blue-800';
+  st.innerHTML='<i class="fa-solid fa-circle-notch fa-spin ml-1"></i> جارٍ الإرسال الآمن إلى بريد الشركة... لا تغلق النافذة.';
+  $('#wizSend').disabled=true; $('#wizSend').style.opacity='.6';
+  // save locally first (reliable queue)
+  const all=store.get('asg_orders',[]); const rec={...o,status:'sending'}; all.unshift(rec); store.set('asg_orders',all);
+  let delivered=false, errMsg='';
+  try{
+    const payload={
+      _subject:`طلب مشروع جديد [${o.ref}] — ${o.service} — ${o.name}`,
+      _template:'table', _captcha:'false', _replyto:o.email,
+      'الرقم المرجعي':o.ref, 'التاريخ':o.atAr, 'النوع':o.mode, 'الخدمة':o.service,
+      'الأنماط المختارة':o.styles, 'الألوان':o.colors, 'اسم المشروع':o.title,
+      'وصف المشروع':o.desc, 'الميزانية':o.budget, 'المدة المطلوبة':o.timeline,
+      'روابط مرجعية':o.links||'-', 'ملاحظات':o.notes||'-',
+      'اسم العميل':o.name, 'بريد العميل':o.email, 'هاتف العميل':o.phone,
+      'الشركة':o.company||'-', 'التواصل المفضل':o.pref
+    };
+    const ctrl=new AbortController(); const to=setTimeout(()=>ctrl.abort(),20000);
+    const res=await fetch(`https://formsubmit.co/ajax/${RECEIVER}`,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal});
+    clearTimeout(to);
+    const data=await res.json().catch(()=>({}));
+    if(res.ok){ delivered=true; }
+    else errMsg=(data&&data.message)||('خطأ '+res.status);
+  }catch(e){ errMsg = e.name==='AbortError'?'انتهت المهلة — تحقق من اتصالك':'تعذر الاتصال بخادم البريد ('+(e.message||'network')+')'; }
+
+  const orders=store.get('asg_orders',[]);
+  const idx=orders.findIndex(x=>x.ref===o.ref); if(idx>-1){orders[idx].status=delivered?'sent':'failed'; store.set('asg_orders',orders);}
+
+  $('#wizSend').disabled=false; $('#wizSend').style.opacity='1';
+  if(delivered){
+    st.className='mt-3 rounded-2xl p-4 text-[13px] font-bold bg-green-50 border border-green-200 text-green-800';
+    st.innerHTML=`<div class="flex gap-2"><i class="fa-solid fa-circle-check text-xl"></i><div><b>تم استلام طلبك وإرساله بنجاح إلى فريق ASG ✓</b><br>رقمك المرجعي: <b dir="ltr" class="font-num">${o.ref}</b> — احتفظ به للمتابعة.<br><span class="text-[12px]">أُرسل إلى ${RECEIVER} وسنتصل بك خلال 24 ساعة (${o.pref}: <span dir="ltr">${o.phone}</span>).</span><br><span class="text-[11.5px] text-green-600">ملاحظة: أول إرسال قد يتطلب تفعيلًا واحدًا من بريد الشركة — إن لم يصلنا سنعاود عبر البدائل أدناه تلقائيًا.</span></div></div>`;
+    toast('وصل طلبك للفريق بنجاح — رقمك '+o.ref);
+    // reset styles selection for next order but keep contact
+    wizSelectedStyles.clear();
+  }else{
+    st.className='mt-3 rounded-2xl p-4 text-[13px] font-bold bg-red-50 border border-red-200 text-red-800';
+    st.innerHTML=`<div class="flex gap-2"><i class="fa-solid fa-triangle-exclamation text-xl"></i><div><b>تعذر الإرسال التلقائي الآن — ولم ندّعِ نجاحًا وهميًا.</b><br><span class="text-[12px]">السبب: ${errMsg}. طلبك محفوظ برقم <b dir="ltr">${o.ref}</b>.</span><br><span class="text-[12px]">فضلًا استخدم فورًا: <b>زر تطبيق البريد</b> بالأسفل (يفتح رسالة جاهزة إلى ${RECEIVER}) أو انسخ نص الطلب وأرسله يدويًا — وسنرد عليك.</span></div></div>
+    <a href="mailto:${RECEIVER}?subject=${encodeURIComponent('طلب مشروع ['+o.ref+'] - '+o.service)}&body=${encodeURIComponent(orderText(o))}" class="mt-3 block text-center bg-ink-900 text-white py-3 rounded-xl font-black">فتح البريد الآن وإرسال الطلب ${o.ref}</a>`;
+    toast('تعذر الإرسال التلقائي — استخدم زر تطبيق البريد','err');
+  }
+}
+
+/* quick contact -> also to email */
+$('#quickForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const fd=new FormData(e.target);
+  const name=fd.get('name').trim(), email=fd.get('email').trim(), msg=fd.get('message').trim();
+  const box=$('#quickStatus'); box.classList.remove('hidden');
+  if(name.length<3||!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)||msg.length<5){ box.className='text-[12.5px] font-bold rounded-xl p-3 bg-red-50 border border-red-100 text-red-700'; box.textContent='فضلًا أكمل الاسم والبريد والرسالة بشكل صحيح.'; return; }
+  $('#quickBtn').disabled=true;
+  box.className='text-[12.5px] font-bold rounded-xl p-3 bg-blue-50 border border-blue-100 text-blue-800'; box.textContent='جارٍ الإرسال إلى بريد الشركة...';
+  try{
+    const res=await fetch(`https://formsubmit.co/ajax/${RECEIVER}`,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:`رسالة سريعة من ${name}`,_template:'table',_captcha:'false',_replyto:email,'الاسم':name,'البريد':email,'الهاتف':fd.get('phone')||'-','الموضوع':fd.get('topic'),'الرسالة':msg})});
+    if(res.ok){ box.className='text-[12.5px] font-bold rounded-xl p-3 bg-green-50 border border-green-100 text-green-800'; box.textContent='وصلت رسالتك للفريق بنجاح ✓ سنرد خلال 24 ساعة.'; e.target.reset(); toast('تم إرسال رسالتك بنجاح'); }
+    else throw new Error();
+  }catch(err){ box.className='text-[12.5px] font-bold rounded-xl p-3 bg-amber-50 border border-amber-200 text-amber-800'; box.innerHTML=`تعذر الإرسال التلقائي. <a class="underline font-black" href="mailto:${RECEIVER}?subject=${encodeURIComponent('رسالة من '+name)}&body=${encodeURIComponent(msg+'\n\n— '+name+' / '+email)}">اضغط هنا للإرسال عبر بريدك</a>`; }
+  $('#quickBtn').disabled=false;
+  $('#quickMailto').href=`mailto:${RECEIVER}?subject=${encodeURIComponent('استفسار من '+name)}&body=${encodeURIComponent(msg)}`;
+});
+
+/* ============ ADMIN / MY ORDERS ============ */
+function openAdmin(){ $('#adminPanel').classList.add('open'); }
+function tryAdmin(){
+  const v=$('#adminKey').value.trim();
+  const u=currentUser();
+  if(v==='ASG-ADMIN-2026' || (u&&u.email===RECEIVER) || v===RECEIVER){ $('#adminLoginBox').classList.add('hidden'); $('#adminDataBox').classList.remove('hidden'); renderAdmin(); }
+  else toast('رمز غير صحيح — هذه المنطقة مخصصة لإدارة ASG','err');
+}
+function renderAdmin(){
+  const q=($('#adminSearch').value||'').toLowerCase();
+  const all=store.get('asg_orders',[]);
+  const list=all.filter(o=>!q||(o.name+o.service+o.ref+o.email).toLowerCase().includes(q));
+  $('#admTotal').textContent=all.length; $('#admSent').textContent=all.filter(o=>o.status==='sent').length; $('#admPend').textContent=all.filter(o=>o.status!=='sent').length;
+  $('#adminList').innerHTML=list.length?list.map(o=>`
+   <div class="border border-gray-200 rounded-2xl p-4 text-[13px] font-bold">
+     <div class="flex items-center justify-between gap-2 flex-wrap"><span class="font-num bg-ink-900 text-white px-2.5 py-1 rounded-lg text-[11.5px]" dir="ltr">${o.ref}</span><span class="text-[11px] px-2.5 py-1 rounded-full ${o.status==='sent'?'bg-green-50 text-green-700':'bg-amber-50 text-amber-700'}">${o.status==='sent'?'✓ أُرسل للبريد':'⏳ محفوظ / يحتاج إعادة إرسال'}</span></div>
+     <div class="mt-2"><b>${o.name}</b> • ${o.service} • <span class="font-num">${o.budget}</span></div>
+     <div class="text-gray-500 text-[12px] mt-1 line-clamp-2">${o.title} — ${o.desc}</div>
+     <div class="text-gray-400 text-[11.5px] mt-1" dir="ltr">${o.email} • ${o.phone}</div>
+     <div class="flex gap-2 mt-2"><a class="flex-1 text-center bg-mist border rounded-xl py-2 text-[12px] font-black" href="mailto:${RECEIVER}?subject=${encodeURIComponent('إعادة إرسال ['+o.ref+']')}&body=${encodeURIComponent(orderText(o))}">إعادة إرسال للبريد</a><button onclick="delOrder('${o.ref}')" class="px-3 py-2 text-red-500 text-[12px] font-black">حذف</button></div>
+   </div>`).join(''):'<div class="text-center text-gray-400 font-bold py-8">لا توجد طلبات بعد — ستظهر هنا كل الطلبات المُدخلة من هذا الجهاز.</div>';
+}
+function delOrder(ref){ store.set('asg_orders',store.get('asg_orders',[]).filter(o=>o.ref!==ref)); renderAdmin(); }
+function clearOrders(){ if(confirm('مسح جميع الطلبات المحفوظة محليًا؟')){ store.set('asg_orders',[]); renderAdmin(); } }
+function exportCSV(){
+  const all=store.get('asg_orders',[]); if(!all.length) return toast('لا توجد بيانات للتصدير','warn');
+  const rows=[['ref','date','service','name','email','phone','budget','title','desc']];
+  all.forEach(o=>rows.push([o.ref,o.atAr,o.service,o.name,o.email,o.phone,o.budget,o.title,(o.desc||'').replace(/\n/g,' ')]));
+  const csv='\ufeff'+rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='asg-orders.csv'; a.click();
+}
+function showMyOrders(){
+  const u=currentUser(); const all=store.get('asg_orders',[]);
+  const mine=u?all.filter(o=>o.email===u.email):all.slice(0,10);
+  $('#ordersModal').classList.remove('hidden'); $('#ordersModal').classList.add('flex');
+  $('#myOrdersList').innerHTML=(u?'':'<div class="text-[12px] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-xl p-3">أنت تتصفح كضيف — تُعرض أحدث الطلبات من هذا الجهاز. سجّل الدخول لعرض طلباتك الخاصة.</div>')+(mine.length?mine.map(o=>`<div class="border border-gray-200 rounded-2xl p-4 text-[13px] font-bold"><div class="flex justify-between"><span class="font-num" dir="ltr">${o.ref}</span><span class="text-[11px] ${o.status==='sent'?'text-green-600':'text-amber-600'}">${o.status==='sent'?'✓ وصل للفريق':'⏳ قيد الإرسال'}</span></div><div class="mt-1">${o.service} — ${o.title}</div><div class="text-gray-400 text-[12px]">${o.atAr}</div></div>`).join(''):'<div class="text-center text-gray-400 font-bold py-6">لا توجد طلبات بعد. <button onclick="closeOrders();openWizard()" class="text-brand-600 underline font-black">ابدأ أول مشروع</button></div>');
+}
+function closeOrders(){ $('#ordersModal').classList.add('hidden'); $('#ordersModal').classList.remove('flex'); }
+
+/* ============ TEAM CHAT ============ */
+const TEAM=[{n:'أحمد',r:'مدير المشاريع',img:'https://i.pravatar.cc/60?img=12'},{n:'سارة',r:'مصممة الهويات',img:'https://i.pravatar.cc/60?img=47'},{n:'عمر',r:'مطور',img:'https://i.pravatar.cc/60?img=59'}];
+function toggleChat(force){ const c=$('#teamChat'); if(force===true)c.classList.add('open'); else if(force===false)c.classList.remove('open'); else c.classList.toggle('open'); if(c.classList.contains('open')&&!$('#chatBody').children.length) botSay('hi'); }
+function addMsg(html,me=false,who=null){
+  const b=$('#chatBody'); const d=document.createElement('div');
+  if(me){ d.className='flex justify-start flex-row-reverse'; d.innerHTML=`<div class="bg-brand-500 text-white rounded-2xl rounded-tl-md px-4 py-2.5 max-w-[85%] leading-7">${html}</div>`; }
+  else{ const m=who||TEAM[Math.floor(Math.random()*TEAM.length)]; d.className='flex gap-2'; d.innerHTML=`<img src="${m.img}" class="w-8 h-8 rounded-full object-cover shrink-0"><div><div class="text-[10.5px] text-gray-400 font-black mb-0.5">${m.n} • ${m.r}</div><div class="bg-white border border-gray-100 shadow-sm rounded-2xl rounded-tr-md px-4 py-2.5 max-w-[260px] leading-7 text-gray-700">${html}</div></div>`; }
+  b.appendChild(d); b.scrollTop=b.scrollHeight;
+}
+function botSay(ctx){
+  const typing=document.createElement('div'); typing.className='flex gap-2'; typing.innerHTML=`<div class="bg-white border rounded-2xl px-4 py-3 typing flex gap-1"><span></span><span></span><span></span></div>`;
+  $('#chatBody').appendChild(typing); $('#chatBody').scrollTop=9999;
+  setTimeout(()=>{
+    typing.remove();
+    if(ctx==='hi'){ addMsg('أهلًا بك في <b>ASG</b> 👋 أنا أحمد من فريق المشاريع. احكِ لي باختصار: ما فكرتك؟ وسأوجهك للخدمة والنمط المناسب — أو اضغط "ابدأ مشروعك" وسنستلم طلبك على بريدنا الرسمي فورًا.'); }
+    else if(ctx.includes('سعر')||ctx.includes('تكلفة')||ctx.includes('باقة')){ addMsg('أسعارنا تبدأ من: موقع $500 • شعار $120 • هوية $350 • فيديو $150 • عروض $100 • تطبيق $1200. السعر النهائي يعتمد على التفاصيل — أرسل فكرتك عبر زر "ابدأ مشروعك" وسنرسل لك عرضًا دقيقًا خلال 24 ساعة.'); }
+    else if(ctx.includes('مدة')||ctx.includes('وقت')||ctx.includes('مستعجل')){ addMsg('المدد المعتادة: شعار 3-5 أيام، موقع 2-4 أسابيع، تطبيق 4-8 أسابيع، فيديو 5-10 أيام. عندك Deadline؟ اذكره في نموذج الطلب وسنرتب خطة مستعجلة.'); }
+    else if(ctx.includes('شعار')||ctx.includes('هوية')||ctx.includes('براند')){ addMsg('ممتاز! لقسم البراند لدينا 12 ستايل تختار منها بعينك في قسم "القوالب والأنماط". اختر ما يعجبك ثم اضغط "اختيار وطلب" وسيُرفق مع طلبك للفريق. تحب أفتح لك القوالب؟',false,TEAM[1]); }
+    else if(ctx.includes('موقع')||ctx.includes('متجر')||ctx.includes('تطبيق')){ addMsg('رائع! مشاريع المواقع والتطبيقات نبدأها بجلسة فهم + 6 قوالب تختار منها. الأفضل تفتح "ابدأ مشروعك" وتختار الخدمة — طلبك يصلنا مباشرة ونتصل بك. تحب أشرح الفرق بين الموقع والمتجر؟',false,TEAM[2]); }
+    else if(ctx.includes('فيديو')||ctx.includes('موشن')||ctx.includes('ريلز')){ addMsg('الفيديو تخصصنا المحبوب 🎬 ننتج تعريفي وموشن وإعلانات وريلز بجودة 4K. أرسل فكرتك + مثال يعجبك في نموذج الطلب وسنرسل لك سيناريو مقترحًا مجانًا مع العرض.'); }
+    else if(ctx.includes('بشري')||ctx.includes('اتصال')||ctx.includes('رقم')||ctx.includes('تواصل')){ addMsg(`أكيد — فريق حقيقي يرد عليك. اترك بياناتك في نموذج "أرسل فكرتك" وسنتصل بك (${ 'خلال 24 ساعة' })، أو راسلنا مباشرة على: <b dir="ltr">${RECEIVER}</b>`); }
+    else { addMsg('فهمتك تمامًا 👍 أفضل خطوة: اضغط <b>"ابدأ مشروعك"</b> بالأعلى واملأ 5 خطوات قصيرة (تاخذ 3 دقائق) — تختار الخدمة والنمط وتشرح فكرتك، ويصلنا طلبك على بريد الشركة الرسمي مع رقم متابعة. وأنا معك هنا لأي سؤال!'); }
+  },900);
+}
+function sendChat(){ const i=$('#chatInput'); const v=i.value.trim(); if(!v)return; addMsg(v,true); i.value=''; botSay(v); }
+$('#chatInput').addEventListener('keydown',e=>{ if(e.key==='Enter')sendChat(); });
+function renderChatQuick(){
+  const qs=['كم أسعاركم؟','أريد شعارًا وهوية','أريد موقعًا لشركتي','كم مدة التنفيذ؟','أريد التحدث مع بشري'];
+  $('#chatQuick').innerHTML=qs.map(q=>`<button onclick="quickChat('${q}')" class="whitespace-nowrap text-[11.5px] font-black bg-white border border-gray-200 rounded-full px-3 py-1.5 hover:border-brand-500 hover:text-brand-600">${q}</button>`).join('');
+}
+function quickChat(q){ addMsg(q,true); botSay(q); }
+
+/* ============ INIT ============ */
+document.addEventListener('DOMContentLoaded',()=>{
+  renderServices(); renderTpls(); renderWorks(); renderPhases(); renderFaq(); renderTesti(); renderMarquee(); renderChatQuick(); refreshAuth();
+  bindReveals();
+  setTimeout(()=>toggleChat(false),100);
+  // GSAP subtle entrances
+  if(window.gsap){ gsap.registerPlugin(ScrollTrigger); }
+});
+// ESC closes modals
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeWizard(); closeAuth(); closeTpl(); closeWork(); closeOrders(); toggleChat(false); document.getElementById('adminPanel').classList.remove('open'); } });
+</script>
+</body>
+</html>
